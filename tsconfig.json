@@ -1,0 +1,22 @@
+
+{
+  "compilerOptions": {
+      "target": "es5",
+      "lib": ["es6", "dom"],
+      "module": "esnext",
+      "moduleResolution": "node",
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+      "allowJs": true,
+      "sourceMap": true,
+      "resolveJsonModule": true,
+      "allowSyntheticDefaultImports": true,
+      "baseUrl": ".",
+      "paths": {
+        "@/*": [
+          "src/*"
+        ]
+      }
+  },
+  "include": ["./src/**/*"]
+}
