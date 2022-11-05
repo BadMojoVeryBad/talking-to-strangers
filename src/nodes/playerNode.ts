@@ -1,8 +1,8 @@
-import { ControlsInterface } from "@/framework/controls/controlsInterface";
-import { Node } from "@/framework/node";
-import { CONST } from "@/support/constants";
-import { FLAGS } from "@/support/flags";
-import { inject, injectable } from "inversify";
+import { ControlsInterface } from '@/framework/controls/controlsInterface';
+import { Node } from '@/framework/node';
+import { CONST } from '@/support/constants';
+import { FLAGS } from '@/support/flags';
+import { inject, injectable } from 'inversify';
 
 @injectable()
 export class PlayerNode extends Node {

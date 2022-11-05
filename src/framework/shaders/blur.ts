@@ -40,7 +40,7 @@ void main()
 `;
 
 export class Blur extends Phaser.Renderer.WebGL.Pipelines.PostFXPipeline {
-  public constructor (game: Phaser.Game) {
+  public constructor(game: Phaser.Game) {
     super({
       game,
       renderTarget: true,
@@ -55,7 +55,7 @@ export class Blur extends Phaser.Renderer.WebGL.Pipelines.PostFXPipeline {
     });
   }
 
-  onPreRender () {
+  onPreRender() {
     // const r = Math.abs(2 * Math.sin(this.game.loop.time * 10))
     this.set1f('uResolution', this.renderer.width);
     this.set1f('radius', 1);

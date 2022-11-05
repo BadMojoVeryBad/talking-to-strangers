@@ -1,6 +1,6 @@
-import { Node } from "@/framework/node";
-import { CONST } from "@/support/constants";
-import { injectable } from "inversify";
+import { Node } from '@/framework/node';
+import { CONST } from '@/support/constants';
+import { injectable } from 'inversify';
 
 @injectable()
 export class ImageNode extends Node {

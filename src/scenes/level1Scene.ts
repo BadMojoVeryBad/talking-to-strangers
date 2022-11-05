@@ -6,5 +6,5 @@ export class Level1Scene extends BaseScene {
     this.addNode('mapNode', {
       mapName: 'stranger1',
     });
-  };
+  }
 }

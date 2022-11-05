@@ -1,18 +1,18 @@
-import { Node } from "@/framework/node";
-import { CONST } from "@/support/constants";
-import { injectable } from "inversify";
+import { Node } from '@/framework/node';
+import { CONST } from '@/support/constants';
+import { injectable } from 'inversify';
 
 @injectable()
 export class BackgroundNode extends Node {
-  private texture: string = '';
+  private texture = '';
 
-  private scroll: number = 1;
+  private scroll = 1;
 
-  private depth: number = 0;
+  private depth = 0;
 
   private tile: Phaser.GameObjects.TileSprite;
 
-  private yOffset: number = 0;
+  private yOffset = 0;
 
   public init(data: Record<string, unknown>) {
     this.texture = (typeof data.texture === 'string') ? data.texture : '';

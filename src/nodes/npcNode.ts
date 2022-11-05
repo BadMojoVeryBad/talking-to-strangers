@@ -1,9 +1,9 @@
-import { ControlsInterface } from "@/framework/controls/controlsInterface";
-import { Node } from "@/framework/node";
-import { CONST } from "@/support/constants";
-import { FLAGS } from "@/support/flags";
-import { inject, injectable } from "inversify";
-import { ConversationNode } from "./conversationNode";
+import { ControlsInterface } from '@/framework/controls/controlsInterface';
+import { Node } from '@/framework/node';
+import { CONST } from '@/support/constants';
+import { FLAGS } from '@/support/flags';
+import { inject, injectable } from 'inversify';
+import { ConversationNode } from './conversationNode';
 
 @injectable()
 export class NpcNode extends Node {
@@ -15,7 +15,7 @@ export class NpcNode extends Node {
   private moveTarget: number;
   private lastMove = 0;
   private conversationNode: ConversationNode;
-  private lastActivatedTime: number = 0;
+  private lastActivatedTime = 0;
   private lines: string[] = [];
   private color: string;
 

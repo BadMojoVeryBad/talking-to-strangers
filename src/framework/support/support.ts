@@ -15,8 +15,8 @@ export const using = <T, U>(value: T, callback: (value: T) => U) => {
 
 export const normalise = (val: number, max: number, min: number): number => {
   return (val - min) / (max - min);
-}
+};
 
 export const clamp = (val: number, min: number, max: number): number => {
   return Math.min(Math.max(val, min), max);
-}
+};

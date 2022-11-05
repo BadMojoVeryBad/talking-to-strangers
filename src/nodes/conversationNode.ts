@@ -1,7 +1,7 @@
-import { ControlsInterface } from "@/framework/controls/controlsInterface";
-import { Node } from "@/framework/node";
-import { CONST } from "@/support/constants";
-import { inject, injectable } from "inversify";
+import { ControlsInterface } from '@/framework/controls/controlsInterface';
+import { Node } from '@/framework/node';
+import { CONST } from '@/support/constants';
+import { inject, injectable } from 'inversify';
 
 @injectable()
 export class ConversationNode extends Node {
@@ -12,9 +12,9 @@ export class ConversationNode extends Node {
   private sideL: Phaser.GameObjects.Image;
   private sideR: Phaser.GameObjects.Image;
   private lines = [];
-  private currentLine: number = 0;
-  private shouldStartConversation: boolean = false;
-  private lastPrintedLetter: number = 0;
+  private currentLine = 0;
+  private shouldStartConversation = false;
+  private lastPrintedLetter = 0;
   private currentText = '';
 
   constructor(@inject('controls') private controls: ControlsInterface) {

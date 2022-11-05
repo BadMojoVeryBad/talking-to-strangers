@@ -1,5 +1,5 @@
-import { Node } from "@/framework/node";
-import { injectable } from "inversify";
+import { Node } from '@/framework/node';
+import { injectable } from 'inversify';
 
 @injectable()
 export abstract class ScriptNode extends Node {
@@ -27,7 +27,7 @@ export abstract class ScriptNode extends Node {
   protected abstract callbacks(): Array<() => Promise<void>>;
 
   protected emit(event: string, ...data: any[]): () => Promise<void> {
-    return async () => {
+    return async() => {
       this.scene.events.emit(event, data);
     };
   }

@@ -1,6 +1,6 @@
-import { Node } from "@/framework/node";
-import { tap } from "@/framework/support/support";
-import { injectable } from "inversify";
+import { Node } from '@/framework/node';
+import { tap } from '@/framework/support/support';
+import { injectable } from 'inversify';
 
 @injectable()
 export class MapNode extends Node {

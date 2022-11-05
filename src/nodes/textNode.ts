@@ -1,5 +1,5 @@
-import { Node } from "@/framework/node";
-import { injectable } from "inversify";
+import { Node } from '@/framework/node';
+import { injectable } from 'inversify';
 
 @injectable()
 export class TextNode extends Node {

@@ -1,7 +1,7 @@
-import { FLAGS } from "@/support/flags";
-import { injectable } from "inversify";
-import { ScriptNode } from "@/framework/nodes/scriptNode";
-import { CameraNode } from "../cameraNode";
+import { FLAGS } from '@/support/flags';
+import { injectable } from 'inversify';
+import { ScriptNode } from '@/framework/nodes/scriptNode';
+import { CameraNode } from '../cameraNode';
 
 @injectable()
 export class Level1OpeningCutsceneScriptNode extends ScriptNode {
@@ -27,7 +27,7 @@ export class Level1OpeningCutsceneScriptNode extends ScriptNode {
   protected events(): string[] {
     return [
       'stranger1.start'
-    ]
+    ];
   }
 
   protected callbacks(): (() => Promise<void>)[] {
@@ -41,7 +41,7 @@ export class Level1OpeningCutsceneScriptNode extends ScriptNode {
       // this.wait(1000),
       // this.pan(318, 259, 5000),
       // async () => { FLAGS.PLAYER_CONTROLS_ENABLED = true; },
-      async () => { this.camera.startFollow(this.player); }
-    ]
+      async() => { this.camera.startFollow(this.player); }
+    ];
   }
 }

@@ -1,8 +1,8 @@
-import { Node } from "@/framework/node";
-import { Blur } from "@/framework/shaders/blur";
-import { SoftLight } from "@/framework/shaders/softLight";
-import { Vignette } from "@/framework/shaders/vignette";
-import { injectable } from "inversify";
+import { Node } from '@/framework/node';
+import { Blur } from '@/framework/shaders/blur';
+import { SoftLight } from '@/framework/shaders/softLight';
+import { Vignette } from '@/framework/shaders/vignette';
+import { injectable } from 'inversify';
 
 @injectable()
 export class CameraNode extends Node {

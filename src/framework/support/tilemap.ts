@@ -12,4 +12,4 @@ export const getTilemapProperty = <T>(obj: Phaser.Types.Tilemaps.TiledObject, na
   }
 
   return defaultValue;
-}
+};

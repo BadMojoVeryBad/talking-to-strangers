@@ -1,7 +1,7 @@
-import { Node } from "@/framework/node";
-import { clamp, normalise } from "@/framework/support/support";
-import { CONST } from "@/support/constants";
-import { injectable } from "inversify";
+import { Node } from '@/framework/node';
+import { clamp, normalise } from '@/framework/support/support';
+import { CONST } from '@/support/constants';
+import { injectable } from 'inversify';
 
 @injectable()
 export class StrangerNode extends Node {
@@ -36,7 +36,7 @@ export class StrangerNode extends Node {
     emitter.start();
 
     this.scene.events.on('player.created', (player: Phaser.Types.Physics.Arcade.SpriteWithDynamicBody) => {
-      this.player = player
+      this.player = player;
     });
   }
 

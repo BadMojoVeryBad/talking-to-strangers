@@ -34,7 +34,7 @@ export class SoftLight extends Phaser.Renderer.WebGL.Pipelines.PostFXPipeline {
     });
   }
 
-    onPreRender(): void {
-      this.set1f('uResolution', this.renderer.width);
-    }
+  onPreRender(): void {
+    this.set1f('uResolution', this.renderer.width);
+  }
 }
