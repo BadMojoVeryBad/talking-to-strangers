@@ -14,9 +14,11 @@ export class CameraNode extends Node {
     this.scene.cameras.main.setPostPipeline([Vignette, SoftLight]);
     this.scene.cameras.main.roundPixels = true;
 
-    this.scene.input.on('pointerdown', (pointer) => {
-      console.log(Math.round(pointer.worldX), Math.round(pointer.worldY));
-    });
+    if (this.isDebug()) {
+      this.scene.input.on('pointerdown', (pointer) => {
+        console.log(Math.round(pointer.worldX), Math.round(pointer.worldY));
+      });
+    }
 
     this.scene.events.on('player.created', (player: PlayerNode) => {
       player.getPlayer().body.setCollideWorldBounds();

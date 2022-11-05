@@ -1,6 +1,7 @@
 import { Scene } from '@/framework/scene';
 import { BackgroundNode } from '@/nodes/backgroundNode';
 import { CameraNode } from '@/nodes/cameraNode';
+import { DebugNode } from '@/nodes/debugNode';
 import { NoiseNode } from '@/nodes/noiseNode';
 import { RainNode } from '@/nodes/rainNode';
 import { VignetteNode } from '@/nodes/vignetteNode';
@@ -16,6 +17,7 @@ export abstract class BaseScene extends Scene {
   public init(): void {
     this.addMapNode();
 
+    this.addNode(DebugNode);
     this.addNode(CameraNode);
     this.addNode(RainNode);
     this.addNode(NoiseNode);

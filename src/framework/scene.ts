@@ -172,6 +172,10 @@ export abstract class Scene extends Phaser.Scene implements NodeInterface {
     return this.isSceneCreated;
   }
 
+  public isDebug(): boolean {
+    return this.game.registry.get('_debug') as boolean;
+  }
+
   private updateNode(node: NodeInterface, hook: Hook, time = 0, delta = 0) {
     switch (hook as Hook) {
     case Hook.CREATE:

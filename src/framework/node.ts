@@ -86,6 +86,10 @@ export abstract class Node implements NodeInterface {
     this.children = [];
   }
 
+  public isDebug(): boolean {
+    return this.scene.game.registry.get('_debug') as boolean;
+  }
+
   private destroyChildren(nodes: Array<NodeInterface>) {
     for (const node of nodes) {
       this.destroyChildren(node.getChildren());

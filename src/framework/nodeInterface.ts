@@ -85,4 +85,9 @@ export interface NodeInterface {
    * `this.destroy()` is implemented, this method will call it.
    */
   remove(): void;
+
+  /**
+   * Returns true if the game is in debug mode.
+   */
+  isDebug(): boolean;
 }

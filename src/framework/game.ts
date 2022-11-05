@@ -275,6 +275,8 @@ export class Game {
     this.phaser.scene.start('_input', { controls, inputs: this.inputs });
     this.phaser.registry.set('_controls', new Controls(controls));
 
+    this.phaser.registry.set('_debug', this.options.debug);
+
     // Start the first scene.
     this.phaser.scene.start('_load', {
       assets: this.assets,
