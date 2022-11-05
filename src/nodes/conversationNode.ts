@@ -17,6 +17,8 @@ export class ConversationNode extends Node {
   private lastPrintedLetter = 0;
   private currentText = '';
 
+  protected defaultState = 'idle';
+
   constructor(@inject('controls') private controls: ControlsInterface) {
     super();
   }

@@ -19,12 +19,13 @@ export class NpcNode extends Node {
   private lines: string[] = [];
   private color: string;
 
+  protected defaultState = 'idle';
+
   constructor(@inject('controls') private controls: ControlsInterface) {
     super();
   }
 
   public init(data: Record<string, unknown>) {
-    console.log(data);
     if (typeof data.x === 'number' && typeof data.y === 'number') {
       this.position = new Phaser.Math.Vector2(data.x, data.y);
     }
