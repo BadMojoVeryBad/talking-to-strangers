@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 // @ts-nocheck
 const fragShader = `
 #define SHADER_NAME SOFTLIGHT_FS
@@ -14,8 +15,7 @@ void main( void )
 {
     vec2 uv = gl_FragCoord.xy / uResolution.xy;          // Current pixel.
     vec4 color = texture2D(uMainSampler, outTexCoord);   // Color of pixel.
-    vec3 light = vec3(0.51, 0.47, 0.42);                      // Color of light.
-    // vec3 light = vec3(0, 0, 1);                       // Color of light.
+    vec3 light = vec3(0.51, 0.47, 0.42);                 // Color of light.
     vec3 mixColor = SoftLight(color.rgb, light);         // Blend colors.
     gl_FragColor = vec4(mixColor, 1.0);                  // Set pixel color.
 }

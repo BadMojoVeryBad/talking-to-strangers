@@ -1,16 +1,18 @@
-import { inject, injectable } from 'inversify';
-import { ControlsInterface } from '@/framework/controls/controlsInterface';
-import { RegisterControlsInterface } from '@/framework/controls/registerControlsInterface';
+import { RegisterControls } from './registerControls';
 
 /**
- * @inheritdoc
+ * Returns if certain controls are active.
  */
-@injectable()
-export class Controls implements ControlsInterface {
-  constructor(@inject('_registerControls') private controls: RegisterControlsInterface) { }
+export class Controls {
+  constructor(private controls: RegisterControls) { }
 
   /**
-   * @inheritdoc
+   * Returns > 0 if any input for the control is pressed.
+   *
+   * @param control The control to check.
+   *
+   * @returns number A number between 0 and 1 that represents how
+   *                'active' the control is.
    */
   public isActive(control: string): number {
     return this.controls.isActive(control);

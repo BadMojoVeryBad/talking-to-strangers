@@ -1,9 +1,6 @@
-import { ControlsInterface } from '@/framework/controls/controlsInterface';
 import { Node } from '@/framework/node';
 import { CONST } from '@/support/constants';
-import { inject, injectable } from 'inversify';
 
-@injectable()
 export class ConversationNode extends Node {
   private position = new Phaser.Math.Vector2();
   private text: Phaser.GameObjects.BitmapText;
@@ -19,17 +16,13 @@ export class ConversationNode extends Node {
 
   protected defaultState = 'idle';
 
-  constructor(@inject('controls') private controls: ControlsInterface) {
-    super();
-  }
-
   public init(data?: Record<string, unknown>): void {
     if (data.lines instanceof Array<string>) {
       this.lines = data.lines;
     }
   }
 
-  public create() {
+  public create(): void {
     this.text = this.scene.add.bitmapText(this.position.x, this.position.y, 'pixelFont', '', 16);
     this.text.setDepth(40).setVisible(false);
     this.arrow = this.scene.add.image(0, 0, CONST.TEXTURE_NAME, 'conversationArrow').setDepth(39).setVisible(false);

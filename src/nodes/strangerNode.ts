@@ -1,9 +1,7 @@
 import { Node } from '@/framework/node';
 import { clamp, normalise } from '@/framework/support/support';
 import { CONST } from '@/support/constants';
-import { injectable } from 'inversify';
 
-@injectable()
 export class StrangerNode extends Node {
   private player: Phaser.Types.Physics.Arcade.SpriteWithDynamicBody;
 
@@ -15,7 +13,7 @@ export class StrangerNode extends Node {
     }
   }
 
-  public create() {
+  public create(): void {
     const sprite = this.scene.add.sprite(this.position.x, this.position.y, CONST.TEXTURE_NAME, 'stranger1');
     sprite.setDepth(90);
     sprite.play('stranger');
@@ -40,7 +38,7 @@ export class StrangerNode extends Node {
     });
   }
 
-  public update() {
+  public update(): void {
     const distance = Phaser.Math.Distance.BetweenPoints(this.player, this.position);
     const intensity = clamp(normalise(distance, 0, 64), 0, 1);
     this.scene.events.emit('stranger.intensity', intensity);

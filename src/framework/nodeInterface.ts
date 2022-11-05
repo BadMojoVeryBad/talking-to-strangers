@@ -55,10 +55,10 @@ export interface NodeInterface {
   /**
    * Add a child node.
    *
-   * @param key The key of the node to add.
+   * @param nodeClass The class of the node to add.
    * @param data Any data to be passed to the node's `init()` method.
    */
-  addNode(key: string, data?: Record<string, unknown>): void;
+  addNode<T extends NodeInterface>(nodeClass: new () => T, data?: Record<string, unknown>): T;
 
   /**
    * Adds a state this node can be in.

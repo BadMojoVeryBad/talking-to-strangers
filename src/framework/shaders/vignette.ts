@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 // @ts-nocheck
 const fragShader = `
 #define SHADER_NAME VIGNETTE_FS

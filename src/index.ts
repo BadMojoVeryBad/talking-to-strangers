@@ -1,21 +1,6 @@
-import 'reflect-metadata';
 import { Game } from '@/framework/game';
 import { Level1Scene } from '@/scenes/level1Scene';
-import { BackgroundNode } from '@/nodes/backgroundNode';
-import { RainNode } from '@/nodes/rainNode';
-import { NoiseNode } from './nodes/noiseNode';
-import { VignetteNode } from './nodes/vignetteNode';
-import { CameraNode } from './nodes/cameraNode';
-import { FloorNode } from './nodes/floorNode';
-import { PlayerNode } from './nodes/playerNode';
 import { CONST } from './support/constants';
-import { MapNode } from './nodes/mapNode';
-import { StrangerNode } from './nodes/strangerNode';
-import { TextNode } from './nodes/textNode';
-import { ImageNode } from './nodes/imageNode';
-import { Level1OpeningCutsceneScriptNode } from './nodes/scripts/level1OpeningCutsceneScriptNode';
-import { NpcNode } from './nodes/npcNode';
-import { ConversationNode } from './nodes/conversationNode';
 
 // Create a game.
 const game = Game.create(CONST.GAME_WIDTH, CONST.GAME_HEIGHT, {
@@ -25,24 +10,6 @@ const game = Game.create(CONST.GAME_WIDTH, CONST.GAME_HEIGHT, {
 
 // Scenes.
 game.registerScene('level1Scene', Level1Scene);
-
-// Nodes.
-game.registerNode('cameraNode', CameraNode);
-game.registerNode('backgroundNode', BackgroundNode);
-game.registerNode('rainNode', RainNode);
-game.registerNode('noiseNode', NoiseNode);
-game.registerNode('vignetteNode', VignetteNode);
-game.registerNode('floorNode', FloorNode);
-game.registerNode('playerNode', PlayerNode);
-game.registerNode('mapNode', MapNode);
-game.registerNode('strangerNode', StrangerNode);
-game.registerNode('textNode', TextNode);
-game.registerNode('conversationNode', ConversationNode);
-game.registerNode('imageNode', ImageNode);
-game.registerNode('npcNode', NpcNode);
-
-// Script Nodes.
-game.registerNode('level1OpeningCutsceneScriptNode', Level1OpeningCutsceneScriptNode);
 
 // Assets.
 game.registerAsset(CONST.TEXTURE_NAME, 'assets/textures.png', 'assets/textures.json');

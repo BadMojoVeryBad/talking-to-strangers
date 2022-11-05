@@ -1,20 +1,13 @@
-import { ControlsInterface } from '@/framework/controls/controlsInterface';
 import { Node } from '@/framework/node';
 import { CONST } from '@/support/constants';
 import { FLAGS } from '@/support/flags';
-import { inject, injectable } from 'inversify';
 
-@injectable()
 export class PlayerNode extends Node {
   private speedIntensity = 0;
 
   private player: Phaser.Types.Physics.Arcade.SpriteWithDynamicBody;
 
-  constructor(@inject('controls') private controls: ControlsInterface) {
-    super();
-  }
-
-  public create() {
+  public create(): void {
     this.player = this.scene.physics.add.sprite(318, 274, CONST.TEXTURE_NAME, 'cat');
     this.player.setDepth(100).setFlipX(true);
 

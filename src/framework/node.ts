@@ -1,22 +1,25 @@
-import { injectable } from 'inversify';
 import { NodeInterface } from '@/framework/nodeInterface';
 import { Scene } from '@/framework/scene';
+import { Controls } from './controls/controls';
 import { using } from './support/support';
 
 /**
  * A node to be used in a Phaser game.
  */
-@injectable()
 export abstract class Node implements NodeInterface {
   private children: Array<NodeInterface> = [];
 
   private parent: NodeInterface;
 
   private states: {[key: string]: (time: number, delta: number) => string|void} = {
-    'default': () => {}
+    'default': () => {
+      // To be overridden.
+    }
   };
 
   private currentState: string;
+
+  protected controls: Controls;
 
   protected defaultState = 'default';
 
@@ -56,10 +59,11 @@ export abstract class Node implements NodeInterface {
 
   public setScene(scene: Scene): void {
     this.scene = scene;
+    this.controls = scene.game.registry.get('_controls') as Controls;
   }
 
-  public addNode(key: string, data?: Record<string, unknown>): NodeInterface {
-    const component = this.scene.createNode(key, data);
+  public addNode<T extends NodeInterface>(nodeClass: new () => T, data?: Record<string, unknown>): T {
+    const component = this.scene.createNode(nodeClass, data);
     this.children.push(component);
     return component;
   }

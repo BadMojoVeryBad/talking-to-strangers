@@ -1,5 +1,5 @@
-import { Container } from 'inversify';
 import { NodeInterface } from '@/framework/nodeInterface';
+import { tap } from './support/support';
 
 enum Hook {
   CREATE,
@@ -73,10 +73,9 @@ export abstract class Scene extends Phaser.Scene implements NodeInterface {
    * @param key The key of the node to add.
    * @param data Any data to be passed to the node's `init()` method.
    */
-  public createNode(key: string, data?: Record<string, unknown>): NodeInterface {
+  public createNode<T extends NodeInterface>(nodeClass: new () => T, data?: Record<string, unknown>): T {
     // Get a node instance.
-    const serviceContainer = this.registry.get('_serviceContainer') as Container;
-    const node = serviceContainer.get<NodeInterface>(key);
+    const node = new nodeClass();
 
     // Initialise it.
     node.setScene(this);
@@ -94,15 +93,14 @@ export abstract class Scene extends Phaser.Scene implements NodeInterface {
     return node;
   }
 
-  public addNode(key: string, data?: Record<string, unknown>): void {
-    const node = this.createNode(key, data);
-
-    // Add it to node tree.
-    this.nodes.push(node);
+  public addNode<T extends NodeInterface>(nodeClass: new () => T, data?: Record<string, unknown>): T {
+    return tap(this.createNode(nodeClass, data), (node) => {
+      this.nodes.push(node);
+    });
   }
 
-  public addState(name: string, fn: (time: number, delta: number) => string | void): void {
-    throw new Error('Scenes do not have states.');
+  public addState(): void {
+    throw new Error('Scenes do not have states. To use states add a node to this scene and use states within the node.');
   }
 
   /**

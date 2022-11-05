@@ -1,15 +1,15 @@
 import { InputInterface } from '@/framework/controls/inputs/inputInterface';
-import { RegisterControlsInterface } from '@/framework/controls/registerControlsInterface';
 import { Gamepad, GamepadButton, GamepadInput } from '@/framework/controls/inputs/gamepadInput';
 import { KeyboardInput } from '@/framework/controls/inputs/keyboardInput';
 import { Scene } from '@/framework/scene';
+import { RegisterControls } from '../controls/registerControls';
 
 export class InputScene extends Scene {
   constructor() {
     super('_input');
   }
 
-  public init(data: { controls: RegisterControlsInterface, inputs: Record<string, string[]> }): void {
+  public init(data: { controls: RegisterControls, inputs: Record<string, string[]> }): void {
     for (const control in data.inputs) {
       const inputObjects: Array<InputInterface> = [];
 

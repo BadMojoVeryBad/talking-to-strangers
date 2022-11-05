@@ -1,16 +1,18 @@
-import { injectable } from 'inversify';
-import { RegisterControlsInterface } from '@/framework/controls/registerControlsInterface';
 import { InputInterface } from '@/framework/controls/inputs/inputInterface';
 
 /**
- * @inheritdoc
+ * Allows a control (e.g. 'Left' or 'Activate') to be mapped to
+ * inputs (e.g. 'Left arrow key', 'A key').
  */
-@injectable()
-export class RegisterControls implements RegisterControlsInterface {
+export class RegisterControls {
   private controlMap: Record<string, InputInterface[]> = {};
 
   /**
-   * @inheritdoc
+   * Add an input to a control. Using this, you can add many inputs
+   * to the same control.
+   *
+   * @param control The control to add the inputs to.
+   * @param inputs The inputs to add.
    */
   public registerInputs(control: string, inputs: InputInterface[]): void {
     this.registerControl(control);
@@ -18,7 +20,12 @@ export class RegisterControls implements RegisterControlsInterface {
   }
 
   /**
-   * @inheritdoc
+   * Returns > 0 if any input for the control is pressed.
+   *
+   * @param control The control to check.
+   *
+   * @returns number A number between 0 and 1 that represents how
+   *                'active' the control is.
    */
   public isActive(control: string): number {
     const inputs = this.controlMap[control.valueOf()];

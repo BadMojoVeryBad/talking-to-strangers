@@ -1,7 +1,5 @@
 import { Node } from '@/framework/node';
-import { injectable } from 'inversify';
 
-@injectable()
 export abstract class ScriptNode extends Node {
   public create(): void {
     for (const event of this.events()) {
@@ -42,7 +40,7 @@ export abstract class ScriptNode extends Node {
     };
   }
 
-  protected pan(x, y, duration): () => Promise<void> {
+  protected pan(x: number, y: number, duration: number): () => Promise<void> {
     return () => {
       return new Promise<void>(resolve => {
         this.scene.cameras.main.pan(x, y, duration, Phaser.Math.Easing.Quadratic.InOut, false, (camera, progress) => {
@@ -54,7 +52,7 @@ export abstract class ScriptNode extends Node {
     };
   }
 
-  protected fadeIn(duration): () => Promise<void> {
+  protected fadeIn(duration: number): () => Promise<void> {
     return () => {
       return new Promise<void>(resolve => {
         this.scene.cameras.main.fadeIn(duration, 0, 0, 0, (camera, progress) => {
@@ -66,7 +64,7 @@ export abstract class ScriptNode extends Node {
     };
   }
 
-  protected fadeOut(duration): () => Promise<void> {
+  protected fadeOut(duration: number): () => Promise<void> {
     return () => {
       return new Promise<void>(resolve => {
         this.scene.cameras.main.fadeOut(duration, 0, 0, 0, (camera, progress) => {

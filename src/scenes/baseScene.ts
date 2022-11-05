@@ -1,4 +1,9 @@
 import { Scene } from '@/framework/scene';
+import { BackgroundNode } from '@/nodes/backgroundNode';
+import { CameraNode } from '@/nodes/cameraNode';
+import { NoiseNode } from '@/nodes/noiseNode';
+import { RainNode } from '@/nodes/rainNode';
+import { VignetteNode } from '@/nodes/vignetteNode';
 
 export abstract class BaseScene extends Scene {
   protected abstract addMapNode(): void;
@@ -11,27 +16,27 @@ export abstract class BaseScene extends Scene {
   public init(): void {
     this.addMapNode();
 
-    this.addNode('cameraNode');
-    this.addNode('rainNode');
-    this.addNode('noiseNode');
-    this.addNode('vignetteNode');
-    this.addNode('backgroundNode', {
+    this.addNode(CameraNode);
+    this.addNode(RainNode);
+    this.addNode(NoiseNode);
+    this.addNode(VignetteNode);
+    this.addNode(BackgroundNode, {
       texture: 'bg',
       scroll: 0
     });
-    this.addNode('backgroundNode', {
+    this.addNode(BackgroundNode, {
       texture: 'buildings1',
       scroll: 0.3,
       depth: 30,
       yOffset: 58
     });
-    this.addNode('backgroundNode', {
+    this.addNode(BackgroundNode, {
       texture: 'buildings2',
       scroll: 0.2,
       depth: 20,
       yOffset: 32
     });
-    this.addNode('backgroundNode', {
+    this.addNode(BackgroundNode, {
       texture: 'buildings3',
       scroll: 0.1,
       depth: 10,

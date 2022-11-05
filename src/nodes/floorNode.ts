@@ -1,8 +1,6 @@
 import { Node } from '@/framework/node';
 import { CONST } from '@/support/constants';
-import { injectable } from 'inversify';
 
-@injectable()
 export class FloorNode extends Node {
   private position: Phaser.Math.Vector2;
 
@@ -20,7 +18,7 @@ export class FloorNode extends Node {
     }
   }
 
-  public create() {
+  public create(): void {
     const rectangle = this.scene.add.rectangle(this.position.x, this.position.y, this.size.x, this.size.y, 0x000000);
     rectangle.setDepth(100);
     this.scene.physics.add.existing(rectangle, true);
@@ -59,11 +57,11 @@ export class FloorNode extends Node {
     this.emitter.start();
   }
 
-  public created() {
+  public created(): void {
     this.scene.events.emit('floor.created', 1024);
   }
 
-  public update(time: number, delta: number): void {
+  public update(): void {
     this.emitter.setEmitZone({
       type: 'random',
       source: new Phaser.Geom.Rectangle(this.scene.cameras.main.scrollX, this.position.y - (this.size.y / 2), 128, 1),

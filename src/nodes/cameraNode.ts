@@ -1,10 +1,7 @@
 import { Node } from '@/framework/node';
-import { Blur } from '@/framework/shaders/blur';
 import { SoftLight } from '@/framework/shaders/softLight';
 import { Vignette } from '@/framework/shaders/vignette';
-import { injectable } from 'inversify';
 
-@injectable()
 export class CameraNode extends Node {
   private shakeIntensity = 0;
 
@@ -12,8 +9,8 @@ export class CameraNode extends Node {
 
   private target;
 
-  public create() {
-    this.scene.cameras.main.setPostPipeline([Vignette, SoftLight, /* Blur */]);
+  public create(): void {
+    this.scene.cameras.main.setPostPipeline([Vignette, SoftLight]);
     this.scene.cameras.main.roundPixels = true;
 
     this.scene.input.on('pointerdown', (pointer) => {

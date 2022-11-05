@@ -1,11 +1,8 @@
-import { ControlsInterface } from '@/framework/controls/controlsInterface';
 import { Node } from '@/framework/node';
 import { CONST } from '@/support/constants';
 import { FLAGS } from '@/support/flags';
-import { inject, injectable } from 'inversify';
 import { ConversationNode } from './conversationNode';
 
-@injectable()
 export class NpcNode extends Node {
   private position = new Phaser.Math.Vector2();
   private npc: Phaser.Types.Physics.Arcade.SpriteWithDynamicBody;
@@ -21,11 +18,7 @@ export class NpcNode extends Node {
 
   protected defaultState = 'idle';
 
-  constructor(@inject('controls') private controls: ControlsInterface) {
-    super();
-  }
-
-  public init(data: Record<string, unknown>) {
+  public init(data: Record<string, unknown>): void {
     if (typeof data.x === 'number' && typeof data.y === 'number') {
       this.position = new Phaser.Math.Vector2(data.x, data.y);
     }
@@ -47,7 +40,7 @@ export class NpcNode extends Node {
     this.arrow.setDepth(99);
     this.arrow.anims.play('arrow');
 
-    this.interactionZone = this.scene.add.rectangle(this.position.x, this.position.y, 16, 16, 0x000000);
+    this.interactionZone = this.scene.add.rectangle(this.position.x, this.position.y, 32, 32, 0x000000);
     this.scene.physics.add.existing(this.interactionZone, true);
     this.interactionZone.setDepth(100).setVisible(false);
 
@@ -55,14 +48,14 @@ export class NpcNode extends Node {
       this.player = player;
     });
 
-    this.conversationNode = this.addNode('conversationNode', {
+    this.conversationNode = this.addNode(ConversationNode, {
       lines: this.lines
     }) as ConversationNode;
 
     this.addState('idle', (time: number) => {
       this.updateObjectPositions();
 
-      if (this.scene.physics.overlap(this.player, this.npc) && this.controls.isActive(CONST.CONTROL_ACTIVATE) && this.lastActivatedTime + 300 < time) {
+      if (this.scene.physics.overlap(this.player, this.interactionZone) && this.controls.isActive(CONST.CONTROL_ACTIVATE) && this.lastActivatedTime + 300 < time) {
         FLAGS.PLAYER_CONTROLS_ENABLED = false;
         return 'moveToPlayer';
       }
@@ -78,7 +71,7 @@ export class NpcNode extends Node {
     this.addState('moveToTarget', (time: number) => {
       this.updateObjectPositions();
 
-      if (this.scene.physics.overlap(this.player, this.npc) && this.controls.isActive(CONST.CONTROL_ACTIVATE) && this.lastActivatedTime + 300 < time) {
+      if (this.scene.physics.overlap(this.player, this.interactionZone) && this.controls.isActive(CONST.CONTROL_ACTIVATE) && this.lastActivatedTime + 300 < time) {
         FLAGS.PLAYER_CONTROLS_ENABLED = false;
         return 'moveToPlayer';
       }

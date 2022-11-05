@@ -2,13 +2,13 @@
  * Global support functions.
  */
 
-export const tap = <T>(value: T, callback: (value: T) => any) => {
+export const tap = <T>(value: T, callback: (value: T) => any): T => {
   callback(value);
 
   return value;
 };
 
-export const using = <T, U>(value: T, callback: (value: T) => U) => {
+export const using = <T, U>(value: T, callback: (value: T) => U): U => {
   return callback(value);
 };
 

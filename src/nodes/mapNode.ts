@@ -1,8 +1,13 @@
 import { Node } from '@/framework/node';
+import { NodeInterface } from '@/framework/nodeInterface';
 import { tap } from '@/framework/support/support';
-import { injectable } from 'inversify';
+import { FloorNode } from './floorNode';
+import { ImageNode } from './imageNode';
+import { NpcNode } from './npcNode';
+import { PlayerNode } from './playerNode';
+import { Level1OpeningCutsceneScriptNode } from './scripts/level1OpeningCutsceneScriptNode';
+import { StrangerNode } from './strangerNode';
 
-@injectable()
 export class MapNode extends Node {
   private started = false;
 
@@ -16,18 +21,18 @@ export class MapNode extends Node {
     }
   }
 
-  public create() {
-    this.addNode('playerNode');
+  public create(): void {
+    this.addNode(PlayerNode);
 
     this.map = this.scene.make.tilemap({ key: this.mapName });
-    this.addNode('level1OpeningCutsceneScriptNode');
+    this.addNode(Level1OpeningCutsceneScriptNode);
   }
 
   public created(): void {
     // Add nodes dynamically based on what's in the tiled map.
     const objects: Phaser.Types.Tilemaps.TiledObject[] = this.map.getObjectLayer('objects').objects;
     for (const obj of objects) {
-      this.addNode(obj.name + 'Node', {
+      this.addNode(this.getNodeClass(obj.name + 'Node'), {
         x: obj.x + (obj.width / 2),
         y: obj.y - (obj.height / 2),
         width: obj.width,
@@ -39,11 +44,26 @@ export class MapNode extends Node {
     }
   }
 
-  public update() {
+  public update(): void {
     if (!this.started) {
       // Start opening cutscene.
       this.scene.events.emit(this.mapName + '.start');
       this.started = true;
+    }
+  }
+
+  private getNodeClass(name: string): new () => NodeInterface {
+    switch (name) {
+    case 'imageNode':
+      return ImageNode;
+    case 'npcNode':
+      return NpcNode;
+    case 'imageNode':
+      return ImageNode;
+    case 'strangerNode':
+      return StrangerNode;
+    case 'floorNode':
+      return FloorNode;
     }
   }
 }

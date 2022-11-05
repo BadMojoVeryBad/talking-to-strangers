@@ -1,13 +1,8 @@
-import 'reflect-metadata';
-import { Container } from 'inversify';
 import 'phaser';
-import { NodeInterface } from '@/framework/nodeInterface';
 import { Scene } from '@/framework/scene';
 import { LoadScene } from '@/framework/scenes/loadScene';
 import { InputScene } from '@/framework/scenes/inputScene';
 import { RegisterControls } from '@/framework/controls/registerControls';
-import { RegisterControlsInterface } from '@/framework/controls/registerControlsInterface';
-import { ControlsInterface } from '@/framework/controls/controlsInterface';
 import { Controls } from '@/framework/controls/controls';
 import { SoftLight } from './shaders/softLight';
 import { Blur } from './shaders/blur';
@@ -26,8 +21,6 @@ export class Game {
   private pipelines: Record<string, typeof Phaser.Renderer.WebGL.WebGLPipeline> = {};
 
   private config: Phaser.Types.Core.GameConfig;
-
-  private serviceContainer: Container;
 
   private keys: string[] = [];
 
@@ -123,21 +116,7 @@ export class Game {
     // Register load scene.
     game.scenes['_load'] = LoadScene;
 
-    // Create service container.
-    game.serviceContainer = new Container();
-
     return game;
-  }
-
-  /**
-   * Registers a component for use in the game.
-   *
-   * @param key A unique key to reference the component by. This is used when adding components to a scene.
-   * @param component The component class.
-   */
-  public registerNode(key: string, component: new (...args: unknown[]) => NodeInterface): void {
-    this.validateKey(key, 'component');
-    this.serviceContainer.bind<NodeInterface>(key).to(component);
   }
 
   /**
@@ -149,22 +128,6 @@ export class Game {
   public registerScene(key: string, scene: new (...args: any[]) => Scene): void {
     this.validateKey(key, 'scene');
     this.scenes[key] = scene;
-  }
-
-  /**
-   * Registers an arbitrary class in the service container so it can be automatically injected into your components.
-   *
-   * @param key A unique key to reference the service with. This is used when injecting the service.
-   * @param object The class to register.
-   */
-  public registerService<I>(key: string, object: new (...args: any[]) => I, isSingleton = false): void {
-    this.validateKey(key, 'service');
-
-    if (isSingleton) {
-      this.serviceContainer.bind<I>(key).to(object).inSingletonScope();
-    } else {
-      this.serviceContainer.bind<I>(key).to(object);
-    }
   }
 
   /**
@@ -285,12 +248,16 @@ export class Game {
       throw new Error('Cannot start the game twice!');
     }
 
-    // Create the game.
     this.registerPipeline('vignette', Vignette);
     this.registerPipeline('softLight', SoftLight);
     this.registerPipeline('blur', Blur);
+
+    // Disable this because the typings for Phaser aren't quite right.
+    // eslint-disable-next-line
     // @ts-ignore
     this.config.pipeline = this.pipelines;
+
+    // Create the game.
     this.phaser = new Phaser.Game(this.config);
 
     // Add all scenes.
@@ -302,17 +269,11 @@ export class Game {
       this.phaser.scene.add(key, this.scenes[key]);
     }
 
-    // Register framework services.
-    this.serviceContainer.bind<RegisterControlsInterface>('_registerControls').to(RegisterControls).inSingletonScope();
-    this.registerService<ControlsInterface>('controls', Controls);
-
     // Add input scene.
-    const controls = this.serviceContainer.get<RegisterControlsInterface>('_registerControls');
+    const controls = new RegisterControls;
     this.phaser.scene.add('_input', InputScene);
     this.phaser.scene.start('_input', { controls, inputs: this.inputs });
-
-    // Make sure we can access the service container.
-    this.phaser.registry.set('_serviceContainer', this.serviceContainer);
+    this.phaser.registry.set('_controls', new Controls(controls));
 
     // Start the first scene.
     this.phaser.scene.start('_load', {

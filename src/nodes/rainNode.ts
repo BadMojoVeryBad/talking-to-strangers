@@ -1,12 +1,10 @@
 import { Node } from '@/framework/node';
 import { CONST } from '@/support/constants';
-import { injectable } from 'inversify';
 
-@injectable()
 export class RainNode extends Node {
   private emitter: Phaser.GameObjects.Particles.ParticleEmitter;
 
-  public create() {
+  public create(): void {
     const particles = this.scene.add.particles(CONST.TEXTURE_NAME, 'rain');
     particles.setDepth(400);
 
