@@ -1,9 +1,8 @@
 import { ControlsInterface } from "@/framework/controls/controlsInterface";
 import { Node } from "@/framework/node";
 import { CONST } from "@/support/constants";
-import { Flags } from "@/support/flags";
+import { FLAGS } from "@/support/flags";
 import { inject, injectable } from "inversify";
-import { StrangerNode } from "./strangerNode";
 
 @injectable()
 export class PlayerNode extends Node {
@@ -29,7 +28,7 @@ export class PlayerNode extends Node {
   }
 
   public update(): void {
-    if (Flags.PLAYER_CONTROLS_ENABLED) {
+    if (FLAGS.PLAYER_CONTROLS_ENABLED) {
       if (this.controls.isActive(CONST.CONTROL_LEFT) && this.controls.isActive(CONST.CONTROL_RIGHT)) {
         this.player.setVelocityX(0);
       } else if (this.controls.isActive(CONST.CONTROL_LEFT)) {

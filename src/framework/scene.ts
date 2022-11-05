@@ -101,6 +101,10 @@ export abstract class Scene extends Phaser.Scene implements NodeInterface {
     this.nodes.push(node);
   }
 
+  public addState(name: string, fn: (time: number, delta: number) => string | void): void {
+    throw new Error('Scenes do not have states.');
+  }
+
   /**
    * The scene's create method. If you override this method, be sure to call the
    * `super()`:

@@ -1,7 +1,7 @@
 import { Node } from "@/framework/node";
-import { Blur } from "@/shaders/blur";
-import { SoftLight } from "@/shaders/softLight";
-import { Vignette } from "@/shaders/vignette";
+import { Blur } from "@/framework/shaders/blur";
+import { SoftLight } from "@/framework/shaders/softLight";
+import { Vignette } from "@/framework/shaders/vignette";
 import { injectable } from "inversify";
 
 @injectable()

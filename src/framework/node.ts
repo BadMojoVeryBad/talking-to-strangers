@@ -1,15 +1,26 @@
 import { injectable } from 'inversify';
 import { NodeInterface } from '@/framework/nodeInterface';
 import { Scene } from '@/framework/scene';
+import { using } from './support/support';
 
 /**
  * A node to be used in a Phaser game.
  */
 @injectable()
 export abstract class Node implements NodeInterface {
-  protected scene: Scene;
   private children: Array<NodeInterface> = [];
+
   private parent: NodeInterface;
+
+  private states: {[key: string]: (time: number, delta: number) => string|void} = {
+    'default': () => {}
+  };
+
+  private currentState: string;
+
+  protected defaultState = 'default';
+
+  protected scene: Scene;
 
   public init(data?: Record<string, unknown>): void { // eslint-disable-line @typescript-eslint/no-unused-vars
     // To be overridden.
@@ -23,8 +34,20 @@ export abstract class Node implements NodeInterface {
     // To be overridden.
   }
 
-  public update(time: number, delta: number): void { // eslint-disable-line @typescript-eslint/no-unused-vars
-    // To be overridden.
+  public update(time: number, delta: number): void {
+    if (!this.currentState) {
+      this.currentState = this.defaultState;
+    }
+
+    if (!this.states[this.currentState]) {
+      return;
+    }
+
+    using(this.states[this.currentState](time, delta), (state: string|void) => {
+      if (state) {
+        this.currentState = state;
+      }
+    });
   }
 
   public destroy(): void {
@@ -39,6 +62,10 @@ export abstract class Node implements NodeInterface {
     const component = this.scene.createNode(key, data);
     this.children.push(component);
     return component;
+  }
+
+  public addState(name: string, fn: (time: number, delta: number) => string|void): void {
+    this.states[name] = fn;
   }
 
   public getParent(): NodeInterface {

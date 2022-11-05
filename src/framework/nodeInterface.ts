@@ -61,6 +61,16 @@ export interface NodeInterface {
   addNode(key: string, data?: Record<string, unknown>): void;
 
   /**
+   * Adds a state this node can be in.
+   *
+   * @param name The name of the state
+   * @param fn The update function that is run when this state is the
+   *     current state. If a string is returned, the node will
+   *     transition to this state.
+   */
+  addState(name: string, fn: (time: number, delta: number) => string|void): void;
+
+  /**
    * Get child nodes.
    */
   getChildren(): Array<NodeInterface>;

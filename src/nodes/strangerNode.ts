@@ -1,6 +1,6 @@
 import { Node } from "@/framework/node";
+import { clamp, normalise } from "@/framework/support/support";
 import { CONST } from "@/support/constants";
-import { MathHelper } from "@/support/mathHelper";
 import { injectable } from "inversify";
 
 @injectable()
@@ -42,7 +42,7 @@ export class StrangerNode extends Node {
 
   public update() {
     const distance = Phaser.Math.Distance.BetweenPoints(this.player, this.position);
-    const intensity = MathHelper.clamp(MathHelper.normalise(distance, 0, 64), 0, 1);
+    const intensity = clamp(normalise(distance, 0, 64), 0, 1);
     this.scene.events.emit('stranger.intensity', intensity);
   }
 }

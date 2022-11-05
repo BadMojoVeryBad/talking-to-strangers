@@ -3,21 +3,18 @@ import { Game } from '@/framework/game';
 import { Level1Scene } from '@/scenes/level1Scene';
 import { BackgroundNode } from '@/nodes/backgroundNode';
 import { RainNode } from '@/nodes/rainNode';
-import { Vignette } from '@/shaders/vignette';
-import { SoftLight } from '@/shaders/softLight';
 import { NoiseNode } from './nodes/noiseNode';
 import { VignetteNode } from './nodes/vignetteNode';
 import { CameraNode } from './nodes/cameraNode';
 import { FloorNode } from './nodes/floorNode';
 import { PlayerNode } from './nodes/playerNode';
 import { CONST } from './support/constants';
-import { Level1Node } from './nodes/level1Node';
+import { MapNode } from './nodes/mapNode';
 import { StrangerNode } from './nodes/strangerNode';
 import { TextNode } from './nodes/textNode';
 import { ImageNode } from './nodes/imageNode';
-import { Blur } from './shaders/blur';
 import { Level1OpeningCutsceneScriptNode } from './nodes/scripts/level1OpeningCutsceneScriptNode';
-import { NpcNode } from './nodes/npcs/npcNode';
+import { NpcNode } from './nodes/npcNode';
 import { ConversationNode } from './nodes/conversationNode';
 
 // Create a game.
@@ -37,7 +34,7 @@ game.registerNode('noiseNode', NoiseNode);
 game.registerNode('vignetteNode', VignetteNode);
 game.registerNode('floorNode', FloorNode);
 game.registerNode('playerNode', PlayerNode);
-game.registerNode('level1Node', Level1Node);
+game.registerNode('mapNode', MapNode);
 game.registerNode('strangerNode', StrangerNode);
 game.registerNode('textNode', TextNode);
 game.registerNode('conversationNode', ConversationNode);
@@ -55,11 +52,6 @@ game.registerAsset('stranger1', 'assets/stranger1.json');
 game.registerAnimation('textures', 'noise', 1, 3, true, 12);
 game.registerAnimation('textures', 'stranger', 1, 9, true, 12);
 game.registerAnimation('textures', 'arrow', 1, 8, true, 12);
-
-// Shaders.
-game.registerPipeline('vignette', Vignette);
-game.registerPipeline('softLight', SoftLight);
-game.registerPipeline('blur', Blur);
 
 // Controls.
 game.registerControl(CONST.CONTROL_LEFT, 'Keyboard.37', 'Gamepad.LEFT', 'Gamepad.STICK_LEFT_LEFT');

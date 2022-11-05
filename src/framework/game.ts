@@ -9,6 +9,9 @@ import { RegisterControls } from '@/framework/controls/registerControls';
 import { RegisterControlsInterface } from '@/framework/controls/registerControlsInterface';
 import { ControlsInterface } from '@/framework/controls/controlsInterface';
 import { Controls } from '@/framework/controls/controls';
+import { SoftLight } from './shaders/softLight';
+import { Blur } from './shaders/blur';
+import { Vignette } from './shaders/vignette';
 
 /**
  * Creates and configures a Phaser game.
@@ -283,6 +286,9 @@ export class Game {
     }
 
     // Create the game.
+    this.registerPipeline('vignette', Vignette);
+    this.registerPipeline('softLight', SoftLight);
+    this.registerPipeline('blur', Blur);
     // @ts-ignore
     this.config.pipeline = this.pipelines;
     this.phaser = new Phaser.Game(this.config);

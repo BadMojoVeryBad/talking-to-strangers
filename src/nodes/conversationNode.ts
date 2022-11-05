@@ -1,30 +1,20 @@
 import { ControlsInterface } from "@/framework/controls/controlsInterface";
+import { Node } from "@/framework/node";
 import { CONST } from "@/support/constants";
 import { inject, injectable } from "inversify";
-import { StateNode } from "./npcs/stateNode";
 
 @injectable()
-export class ConversationNode extends StateNode {
+export class ConversationNode extends Node {
   private position = new Phaser.Math.Vector2();
-
   private text: Phaser.GameObjects.BitmapText;
-
   private rectangle: Phaser.GameObjects.Rectangle;
-
   private arrow: Phaser.GameObjects.Image;
-
   private sideL: Phaser.GameObjects.Image;
-
   private sideR: Phaser.GameObjects.Image;
-
   private lines = [];
-
   private currentLine: number = 0;
-
   private shouldStartConversation: boolean = false;
-
   private lastPrintedLetter: number = 0;
-
   private currentText = '';
 
   constructor(@inject('controls') private controls: ControlsInterface) {
@@ -32,7 +22,9 @@ export class ConversationNode extends StateNode {
   }
 
   public init(data?: Record<string, unknown>): void {
-    this.lines = data.lines;
+    if (data.lines instanceof Array<string>) {
+      this.lines = data.lines;
+    }
   }
 
   public create() {

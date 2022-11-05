@@ -1,33 +1,22 @@
 import { ControlsInterface } from "@/framework/controls/controlsInterface";
+import { Node } from "@/framework/node";
 import { CONST } from "@/support/constants";
-import { Flags } from "@/support/flags";
-import { TilemapHelper } from "@/support/tilemapHelper";
+import { FLAGS } from "@/support/flags";
 import { inject, injectable } from "inversify";
-import { ConversationNode } from "../conversationNode";
-import { StateNode } from "./stateNode";
+import { ConversationNode } from "./conversationNode";
 
 @injectable()
-export class NpcNode extends StateNode {
+export class NpcNode extends Node {
   private position = new Phaser.Math.Vector2();
-
   private npc: Phaser.Types.Physics.Arcade.SpriteWithDynamicBody;
-
   private arrow: Phaser.GameObjects.Sprite;
-
   private player: Phaser.Types.Physics.Arcade.SpriteWithDynamicBody;
-
   private interactionZone: Phaser.GameObjects.Rectangle;
-
   private moveTarget: number;
-
   private lastMove = 0;
-
   private conversationNode: ConversationNode;
-
   private lastActivatedTime: number = 0;
-
   private lines: string[] = [];
-
   private color: string;
 
   constructor(@inject('controls') private controls: ControlsInterface) {
@@ -35,13 +24,18 @@ export class NpcNode extends StateNode {
   }
 
   public init(data: Record<string, unknown>) {
+    console.log(data);
     if (typeof data.x === 'number' && typeof data.y === 'number') {
       this.position = new Phaser.Math.Vector2(data.x, data.y);
     }
 
-    const obj = (data.obj as Phaser.Types.Tilemaps.TiledObject);
-    this.lines = TilemapHelper.getProperty<string>(obj, 'lines').split('\n');
-    this.color = TilemapHelper.getProperty<string>(obj, 'color');
+    if (typeof data.lines === 'string') {
+      this.lines = data.lines.split('\n');
+    }
+
+    if (typeof data.color === 'string') {
+      this.color = data.color;
+    }
   }
 
   public create(): void {
@@ -68,7 +62,7 @@ export class NpcNode extends StateNode {
       this.updateObjectPositions();
 
       if (this.scene.physics.overlap(this.player, this.npc) && this.controls.isActive(CONST.CONTROL_ACTIVATE) && this.lastActivatedTime + 300 < time) {
-        Flags.PLAYER_CONTROLS_ENABLED = false;
+        FLAGS.PLAYER_CONTROLS_ENABLED = false;
         return 'moveToPlayer';
       }
 
@@ -84,7 +78,7 @@ export class NpcNode extends StateNode {
       this.updateObjectPositions();
 
       if (this.scene.physics.overlap(this.player, this.npc) && this.controls.isActive(CONST.CONTROL_ACTIVATE) && this.lastActivatedTime + 300 < time) {
-        Flags.PLAYER_CONTROLS_ENABLED = false;
+        FLAGS.PLAYER_CONTROLS_ENABLED = false;
         return 'moveToPlayer';
       }
 
@@ -117,7 +111,7 @@ export class NpcNode extends StateNode {
 
     this.addState('inConversation', (time: number) => {
       if (this.conversationNode.isConversationComplete()) {
-        Flags.PLAYER_CONTROLS_ENABLED = true;
+        FLAGS.PLAYER_CONTROLS_ENABLED = true;
         this.lastActivatedTime = time;
         return 'idle';
       }
