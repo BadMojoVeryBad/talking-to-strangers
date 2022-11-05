@@ -1,5 +1,6 @@
 import { Node } from '@/framework/node';
 import { CONST } from '@/support/constants';
+import { PlayerNode } from './playerNode';
 
 export class FloorNode extends Node {
   private position: Phaser.Math.Vector2;
@@ -23,8 +24,8 @@ export class FloorNode extends Node {
     rectangle.setDepth(100);
     this.scene.physics.add.existing(rectangle, true);
 
-    this.scene.events.on('player.created', (player: Phaser.Types.Physics.Arcade.SpriteWithDynamicBody) => {
-      this.scene.physics.add.collider(player, rectangle);
+    this.scene.events.on('player.created', (player: PlayerNode) => {
+      this.scene.physics.add.collider(player.getPlayer(), rectangle);
     });
 
     this.scene.events.on('npc.created', (npc: Phaser.Types.Physics.Arcade.SpriteWithDynamicBody) => {

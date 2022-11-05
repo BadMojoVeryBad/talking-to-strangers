@@ -1,6 +1,7 @@
 import { Node } from '@/framework/node';
 import { clamp, normalise } from '@/framework/support/support';
 import { CONST } from '@/support/constants';
+import { PlayerNode } from './playerNode';
 
 export class StrangerNode extends Node {
   private player: Phaser.Types.Physics.Arcade.SpriteWithDynamicBody;
@@ -33,8 +34,8 @@ export class StrangerNode extends Node {
 
     emitter.start();
 
-    this.scene.events.on('player.created', (player: Phaser.Types.Physics.Arcade.SpriteWithDynamicBody) => {
-      this.player = player;
+    this.scene.events.on('player.created', (player: PlayerNode) => {
+      this.player = player.getPlayer();
     });
   }
 

@@ -22,7 +22,7 @@ export class MapNode extends Node {
   }
 
   public create(): void {
-    this.addNode(PlayerNode);
+    // this.addNode(PlayerNode);
 
     this.map = this.scene.make.tilemap({ key: this.mapName });
     this.addNode(Level1OpeningCutsceneScriptNode);
@@ -64,6 +64,8 @@ export class MapNode extends Node {
       return StrangerNode;
     case 'floorNode':
       return FloorNode;
+    case 'playerNode':
+      return PlayerNode;
     }
   }
 }

@@ -135,7 +135,7 @@
                         {
                          "name":"lines",
                          "type":"string",
-                         "value":"This next guy...\n...Is a stranger.\nSomeone you haven't met.\nI'm getting anxious...\n...Thinking about it."
+                         "value":"This next guy...\n...Is a stranger.\nSomeone you haven't met.\nI'm getting anxious...\n...Just thinking about it."
                         }],
                  "rotation":0,
                  "type":"",
@@ -305,6 +305,18 @@
                  "width":16,
                  "x":960,
                  "y":288
+                }, 
+                {
+                 "gid":1,
+                 "height":16,
+                 "id":24,
+                 "name":"player",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":312,
+                 "y":288
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -313,7 +325,7 @@
          "y":0
         }],
  "nextlayerid":3,
- "nextobjectid":24,
+ "nextobjectid":25,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.7.0",

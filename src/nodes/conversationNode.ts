@@ -83,7 +83,7 @@ export class ConversationNode extends Node {
 
     this.text.setText(this.lines[this.currentLine]).setVisible(true);
     this.rectangle.destroy();
-    this.rectangle = this.scene.add.rectangle(center, this.position.y + 11, Math.max(this.text.width, 64), 16, 0x000000).setDepth(39);
+    this.rectangle = this.scene.add.rectangle(center, this.position.y + 10, Math.max(this.text.width, 64), 16, 0x000000).setDepth(39);
     this.rectangle.setVisible(true);
     this.text.setText(this.currentText).setVisible(true);
     this.text.setPosition(center - (this.text.width / 2), this.position.y);

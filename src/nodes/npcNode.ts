@@ -2,6 +2,7 @@ import { Node } from '@/framework/node';
 import { CONST } from '@/support/constants';
 import { FLAGS } from '@/support/flags';
 import { ConversationNode } from './conversationNode';
+import { PlayerNode } from './playerNode';
 
 export class NpcNode extends Node {
   private position = new Phaser.Math.Vector2();
@@ -33,7 +34,7 @@ export class NpcNode extends Node {
   }
 
   public create(): void {
-    this.npc = this.scene.physics.add.sprite(this.position.x, this.position.y, CONST.TEXTURE_NAME, 'cat' + this.color);
+    this.npc = this.scene.physics.add.sprite(this.position.x, this.position.y, CONST.TEXTURE_NAME, 'cat' + this.color + 'Idle1');
     this.npc.setDepth(99);
 
     this.arrow = this.scene.add.sprite(this.position.x, this.position.y, CONST.TEXTURE_NAME, 'conversationArrow');
@@ -44,8 +45,8 @@ export class NpcNode extends Node {
     this.scene.physics.add.existing(this.interactionZone, true);
     this.interactionZone.setDepth(100).setVisible(false);
 
-    this.scene.events.on('player.created', (player: Phaser.Types.Physics.Arcade.SpriteWithDynamicBody) => {
-      this.player = player;
+    this.scene.events.on('player.created', (player: PlayerNode) => {
+      this.player = player.getPlayer();
     });
 
     this.conversationNode = this.addNode(ConversationNode, {
@@ -54,6 +55,7 @@ export class NpcNode extends Node {
 
     this.addState('idle', (time: number) => {
       this.updateObjectPositions();
+      this.npc.anims.play('cat' + this.color + 'Idle', true);
 
       if (this.scene.physics.overlap(this.player, this.interactionZone) && this.controls.isActive(CONST.CONTROL_ACTIVATE) && this.lastActivatedTime + 300 < time) {
         FLAGS.PLAYER_CONTROLS_ENABLED = false;
@@ -70,6 +72,7 @@ export class NpcNode extends Node {
 
     this.addState('moveToTarget', (time: number) => {
       this.updateObjectPositions();
+      this.npc.anims.play('cat' + this.color + 'Running', true);
 
       if (this.scene.physics.overlap(this.player, this.interactionZone) && this.controls.isActive(CONST.CONTROL_ACTIVATE) && this.lastActivatedTime + 300 < time) {
         FLAGS.PLAYER_CONTROLS_ENABLED = false;
@@ -87,6 +90,7 @@ export class NpcNode extends Node {
     this.addState('moveToPlayer', () => {
       this.updateObjectPositions();
       this.arrow.setVisible(false);
+      this.npc.anims.play('cat' + this.color + 'Running', true);
 
       const target = (this.player.flipX) ? this.player.x -16 : this.player.x + 16;
       (this.velocityDirection(target) > 0) ? this.moveRight() : this.moveLeft();
@@ -98,6 +102,7 @@ export class NpcNode extends Node {
 
     this.addState('facePlayer', () => {
       this.npc.setVelocityX(0);
+      this.npc.anims.play('cat' + this.color + 'Idle', true);
       this.npc.flipX = (this.player.x - this.npc.x) < 0;
       this.conversationNode.startConversation(this.npc.x, this.npc.y - 32);
       return 'inConversation';

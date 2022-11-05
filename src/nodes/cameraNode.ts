@@ -1,6 +1,7 @@
 import { Node } from '@/framework/node';
 import { SoftLight } from '@/framework/shaders/softLight';
 import { Vignette } from '@/framework/shaders/vignette';
+import { PlayerNode } from './playerNode';
 
 export class CameraNode extends Node {
   private shakeIntensity = 0;
@@ -17,8 +18,8 @@ export class CameraNode extends Node {
       console.log(Math.round(pointer.worldX), Math.round(pointer.worldY));
     });
 
-    this.scene.events.on('player.created', (player: Phaser.Types.Physics.Arcade.SpriteWithDynamicBody) => {
-      player.body.setCollideWorldBounds();
+    this.scene.events.on('player.created', (player: PlayerNode) => {
+      player.getPlayer().body.setCollideWorldBounds();
     });
 
     this.scene.events.on('floor.created', (width: number) => {
@@ -61,7 +62,7 @@ export class CameraNode extends Node {
       this.actualPosition.x = Phaser.Math.Linear(this.actualPosition.x, this.target.x, 0.1);
       this.actualPosition.y = Phaser.Math.Linear(this.actualPosition.y, this.target.y, 0.1);
       this.scene.cameras.main.scrollX = this.actualPosition.x - 64;
-      this.scene.cameras.main.scrollY = this.actualPosition.y - 64 - 28;
+      this.scene.cameras.main.scrollY = this.actualPosition.y - 64 - 24;
     }
   }
 
