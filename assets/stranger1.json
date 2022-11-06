@@ -68,6 +68,22 @@
                  "height":16,
                  "id":6,
                  "name":"stranger",
+                 "properties":[
+                        {
+                         "name":"lines",
+                         "type":"string",
+                         "value":"...|speed:200\nOh!\nHello.\nUmmmmmm soooooo...\nDo you come here often?|speed:100\n...\nI'm so sorry.\nI get nervous and resort|noInput\nto the worst cliches."
+                        }, 
+                        {
+                         "name":"npcColor",
+                         "type":"string",
+                         "value":"Orange"
+                        }, 
+                        {
+                         "name":"npcLines",
+                         "type":"string",
+                         "value":"Well...\nIt was nice meeting you.\nCatch you on the flip side!\n(ugh why did I say that)"
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -160,24 +176,6 @@
                  "visible":true,
                  "width":16,
                  "x":720,
-                 "y":288
-                }, 
-                {
-                 "gid":1,
-                 "height":32,
-                 "id":16,
-                 "name":"image",
-                 "properties":[
-                        {
-                         "name":"frame",
-                         "type":"string",
-                         "value":"sign"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":256,
                  "y":288
                 }, 
                 {
@@ -317,6 +315,24 @@
                  "width":16,
                  "x":312,
                  "y":288
+                }, 
+                {
+                 "gid":1,
+                 "height":32,
+                 "id":25,
+                 "name":"image",
+                 "properties":[
+                        {
+                         "name":"frame",
+                         "type":"string",
+                         "value":"car"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":160,
+                 "y":288
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -325,7 +341,7 @@
          "y":0
         }],
  "nextlayerid":3,
- "nextobjectid":25,
+ "nextobjectid":26,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.7.0",

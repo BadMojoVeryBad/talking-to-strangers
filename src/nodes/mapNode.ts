@@ -5,6 +5,7 @@ import { FloorNode } from './floorNode';
 import { ImageNode } from './imageNode';
 import { NpcNode } from './npcNode';
 import { PlayerNode } from './playerNode';
+import { EndSceneScriptNode } from './scripts/endSceneScriptNode';
 import { Level1OpeningCutsceneScriptNode } from './scripts/level1OpeningCutsceneScriptNode';
 import { StrangerNode } from './strangerNode';
 
@@ -26,6 +27,7 @@ export class MapNode extends Node {
 
     this.map = this.scene.make.tilemap({ key: this.mapName });
     this.addNode(Level1OpeningCutsceneScriptNode);
+    this.addNode(EndSceneScriptNode);
   }
 
   public created(): void {

@@ -5,7 +5,7 @@ import { ConversationNode } from './conversationNode';
 import { PlayerNode } from './playerNode';
 
 export class NpcNode extends Node {
-  private position = new Phaser.Math.Vector2();
+  private position = new Phaser.Math.Vector2(0, 0);
   private npc: Phaser.Types.Physics.Arcade.SpriteWithDynamicBody;
   private arrow: Phaser.GameObjects.Sprite;
   private player: Phaser.Types.Physics.Arcade.SpriteWithDynamicBody;
@@ -15,7 +15,7 @@ export class NpcNode extends Node {
   private conversationNode: ConversationNode;
   private lastActivatedTime = 0;
   private lines: string[] = [];
-  private color: string;
+  private color: string = '';
 
   protected defaultState = 'idle';
 
@@ -30,6 +30,10 @@ export class NpcNode extends Node {
 
     if (typeof data.color === 'string') {
       this.color = data.color;
+    }
+
+    if (data.player instanceof PlayerNode) {
+      this.player = data.player.getPlayer();
     }
   }
 

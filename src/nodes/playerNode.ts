@@ -22,6 +22,7 @@ export class PlayerNode extends Node {
   public create(): void {
     this.player = this.scene.physics.add.sprite(this.position.x, this.position.y, CONST.TEXTURE_NAME, 'catRunning1');
     this.player.setDepth(100).setFlipX(true).setVisible(false);
+    this.player.body.setSize(8, 16);
 
     this.scene.events.on('stranger.intensity', (intensity: number) => {
       this.speedIntensity = Math.max((1 - intensity), 0.05);
@@ -43,6 +44,7 @@ export class PlayerNode extends Node {
       if (this.playerSpawn.anims.getProgress() === 1) {
         this.player.setVisible(true);
         this.playerSpawn.setVisible(false);
+        FLAGS.PLAYER_CONTROLS_ENABLED = true;
         return 'playing';
       }
     });
@@ -64,6 +66,9 @@ export class PlayerNode extends Node {
           this.player.anims.play('catIdle', true);
           this.player.setVelocityX(0);
         }
+      } else {
+        this.player.anims.play('catIdle', true);
+        this.player.setVelocityX(0);
       }
     });
   }

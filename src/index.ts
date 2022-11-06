@@ -4,7 +4,7 @@ import { CONST } from './support/constants';
 
 // Create a game.
 const game = Game.create(CONST.GAME_WIDTH, CONST.GAME_HEIGHT, {
-  debug: true,
+  debug: false,
   gravity: 64
 });
 
