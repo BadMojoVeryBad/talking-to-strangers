@@ -3,7 +3,7 @@ import { CONST } from '@/support/constants';
 import { FLAGS } from '@/support/flags';
 
 export class PlayerNode extends Node {
-  private speedIntensity = 0;
+  private speedIntensity = 1;
 
   private player: Phaser.Types.Physics.Arcade.SpriteWithDynamicBody;
 

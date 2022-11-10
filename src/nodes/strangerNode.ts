@@ -2,19 +2,23 @@ import { Node } from '@/framework/node';
 import { clamp, normalise } from '@/framework/support/support';
 import { CONST } from '@/support/constants';
 import { FLAGS } from '@/support/flags';
+import { ConversationNode } from './conversationNode';
 import { NpcNode } from './npcNode';
 import { PlayerNode } from './playerNode';
 import { StrangerNpcNode } from './stangerNpcNode';
 import { StrangerConversationNode } from './strangerConversationNode';
 
 export class StrangerNode extends Node {
-  private player: PlayerNode;
-  private position: Phaser.Math.Vector2;
-  private interactionZone: Phaser.GameObjects.Rectangle;
-  private lines: string[] = [];
+  protected player: PlayerNode;
+  protected position: Phaser.Math.Vector2;
+  protected interactionZone: Phaser.GameObjects.Rectangle;
+  protected lines: string[] = [];
   private conversationEndTime = 0;
-  private npcColor = '';
-  private npcLines = '';
+  protected npcColor = '';
+  protected npcLines = '';
+  protected sprite: Phaser.GameObjects.Sprite;
+  protected particles: Phaser.GameObjects.Particles.ParticleEmitterManager;
+  protected conversationNode: StrangerConversationNode;
 
   public init(data?: Record<string, unknown>): void {
     if (typeof data.x === 'number' && typeof data.y === 'number') {
@@ -39,17 +43,18 @@ export class StrangerNode extends Node {
   }
 
   public create(): void {
-    const conversationNode = this.addNode(StrangerConversationNode, {
+    this.conversationNode = this.addNode(StrangerConversationNode, {
       lines: this.lines
     });
 
-    const sprite = this.scene.add.sprite(this.position.x, this.position.y, CONST.TEXTURE_NAME, 'stranger1');
-    sprite.setDepth(90);
-    sprite.play('stranger');
+    this.sprite = this.scene.add.sprite(this.position.x, this.position.y, CONST.TEXTURE_NAME, 'stranger1')
+      .setDepth(90)
+      .setVisible(false)
+      .play('stranger');
 
-    const particles = this.scene.add.particles(CONST.TEXTURE_NAME, 'blackPixel');
-    particles.setDepth(90);
-    const emitter = particles.createEmitter({
+    this.particles = this.scene.add.particles(CONST.TEXTURE_NAME, 'blackPixel');
+    this.particles.setDepth(90);
+    const emitter = this.particles.createEmitter({
       x: this.position.x,
       y: this.position.y,
       speed: { min: -60, max: 60 },
@@ -65,8 +70,11 @@ export class StrangerNode extends Node {
     this.interactionZone.setDepth(100).setVisible(false);
 
     this.addState('default', () => {
-      if (!conversationNode.isConversationComplete()) {
-        const distance = Phaser.Math.Distance.BetweenPoints(this.player.getPlayer(), this.position);
+      this.sprite.setVisible(true);
+      this.particles.setVisible(true);
+
+      if (!this.conversationNode.isConversationComplete()) {
+        const distance = Phaser.Math.Distance.BetweenPoints(this.player.getPlayer(), new Phaser.Math.Vector2(this.sprite.x, this.sprite.y));
         const intensity = clamp(normalise(distance, 0, 64), 0, 1);
         this.scene.events.emit('stranger.intensity', intensity);
 
@@ -77,13 +85,13 @@ export class StrangerNode extends Node {
     });
 
     this.addState('startConversation', () => {
-      conversationNode.startConversation();
+      this.conversationNode.startConversation();
 
       return 'inConversation';
     });
 
     this.addState('inConversation', (time) => {
-      if (conversationNode.isConversationComplete()) {
+      if (this.conversationNode.isConversationComplete()) {
         this.conversationEndTime = time;
         return 'conversationEnded';
       }
@@ -96,22 +104,30 @@ export class StrangerNode extends Node {
       this.scene.events.emit('stranger.intensity', intensity);
 
       if (this.conversationEndTime + 2000 < time) {
-        return 'spawnNpc';
+        return this.afterConversationEnd(time);
       }
     });
 
     this.addState('spawnNpc', () => {
       this.scene.events.emit('stranger.intensity', 0);
-      this.addNode(StrangerNpcNode, {
-        x: this.position.x,
-        y: this.position.y,
-        player: this.player,
-        lines: this.npcLines,
-        color: this.npcColor,
-      });
-      sprite.destroy();
-      particles.destroy();
+      this.spawnNpc();
+      this.sprite.destroy();
+      this.particles.destroy();
       return 'default';
     });
+  }
+
+  protected spawnNpc(): void {
+    this.addNode(StrangerNpcNode, {
+      x: this.interactionZone.body.position.x,
+      y: this.position.y,
+      player: this.player,
+      lines: this.npcLines,
+      color: this.npcColor,
+    });
+  }
+
+  protected afterConversationEnd(time: number): string {
+    return 'spawnNpc';
   }
 }

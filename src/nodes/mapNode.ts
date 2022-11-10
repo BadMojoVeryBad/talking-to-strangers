@@ -1,12 +1,13 @@
 import { Node } from '@/framework/node';
 import { NodeInterface } from '@/framework/nodeInterface';
 import { tap } from '@/framework/support/support';
+import { BadAdviceNpcNode } from './badAdviceNpcNode';
 import { FloorNode } from './floorNode';
 import { ImageNode } from './imageNode';
 import { NpcNode } from './npcNode';
 import { PlayerNode } from './playerNode';
-import { EndSceneScriptNode } from './scripts/endSceneScriptNode';
-import { Level1OpeningCutsceneScriptNode } from './scripts/level1OpeningCutsceneScriptNode';
+import { Stranger2Node } from './stranger2Node';
+import { Stranger3Node } from './stranger3Node';
 import { StrangerNode } from './strangerNode';
 
 export class MapNode extends Node {
@@ -23,11 +24,7 @@ export class MapNode extends Node {
   }
 
   public create(): void {
-    // this.addNode(PlayerNode);
-
     this.map = this.scene.make.tilemap({ key: this.mapName });
-    this.addNode(Level1OpeningCutsceneScriptNode);
-    this.addNode(EndSceneScriptNode);
   }
 
   public created(): void {
@@ -56,18 +53,24 @@ export class MapNode extends Node {
 
   private getNodeClass(name: string): new () => NodeInterface {
     switch (name) {
-    case 'imageNode':
-      return ImageNode;
-    case 'npcNode':
-      return NpcNode;
-    case 'imageNode':
-      return ImageNode;
-    case 'strangerNode':
-      return StrangerNode;
-    case 'floorNode':
-      return FloorNode;
-    case 'playerNode':
-      return PlayerNode;
+      case 'imageNode':
+        return ImageNode;
+      case 'npcNode':
+        return NpcNode;
+      case 'badAdviceNpcNode':
+        return BadAdviceNpcNode;
+      case 'imageNode':
+        return ImageNode;
+      case 'strangerNode':
+        return StrangerNode;
+      case 'stranger2Node':
+        return Stranger2Node;
+      case 'stranger3Node':
+        return Stranger3Node;
+      case 'floorNode':
+        return FloorNode;
+      case 'playerNode':
+        return PlayerNode;
     }
   }
 }

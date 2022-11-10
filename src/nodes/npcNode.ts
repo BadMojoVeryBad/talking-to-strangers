@@ -10,10 +10,10 @@ export class NpcNode extends Node {
   private arrow: Phaser.GameObjects.Sprite;
   private player: Phaser.Types.Physics.Arcade.SpriteWithDynamicBody;
   private interactionZone: Phaser.GameObjects.Rectangle;
-  private moveTarget: number;
+  protected moveTarget: number;
   private lastMove = 0;
-  private conversationNode: ConversationNode;
-  private lastActivatedTime = 0;
+  protected conversationNode: ConversationNode;
+  protected lastActivatedTime = 0;
   private lines: string[] = [];
   private color: string = '';
 

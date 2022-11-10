@@ -1,19 +1,25 @@
 import { Game } from '@/framework/game';
 import { Level1Scene } from '@/scenes/level1Scene';
+import { Level2Scene } from './scenes/level2Scene';
+import { Level3Scene } from './scenes/level3Scene';
 import { CONST } from './support/constants';
 
 // Create a game.
 const game = Game.create(CONST.GAME_WIDTH, CONST.GAME_HEIGHT, {
-  debug: false,
+  debug: true,
   gravity: 64
 });
 
 // Scenes.
 game.registerScene('level1Scene', Level1Scene);
+game.registerScene('level2Scene', Level2Scene);
+game.registerScene('level3Scene', Level3Scene);
 
 // Assets.
 game.registerAsset(CONST.TEXTURE_NAME, 'assets/textures.png', 'assets/textures.json');
 game.registerAsset('stranger1', 'assets/stranger1.json');
+game.registerAsset('stranger2', 'assets/stranger2.json');
+game.registerAsset('stranger3', 'assets/stranger3.json');
 
 // Animations.
 game.registerAnimation('textures', 'noise', 1, 3, true, 12);
