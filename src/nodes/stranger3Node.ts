@@ -14,11 +14,10 @@ export class Stranger3Node extends StrangerNode {
   public create(): void {
     this.finalLines = this.lines;
     this.lines = [
+      '...|speed:300',
       '......|speed:300',
-      '............|speed:300',
-      'You can\'t catch me you can\'t catch me|noInput',
-      'You can\'t catch me you can\'t catch me|noInput',
-      'Heheheeee!'
+      'Catch me if you can!!!|noInput,speed:5',
+      'Heheheeeeeee!!!|speed:5'
     ];
     super.create();
 
@@ -42,12 +41,12 @@ export class Stranger3Node extends StrangerNode {
     if (this.times === 1) {
       this.conversationNode = this.addNode(StrangerConversationNode, {
         lines: [
+          '...|speed:300',
           '......|speed:300',
-          '............|speed:300',
           '!!!!!!!!!!!!!!!!!!',
-          '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!|speed:5,noInput',
-          '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!|speed:5,noInput',
-          '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!|speed:5',
+          '!!!!!!!!!!!!!!!!!!|speed:5,noInput',
+          '!!!!!!!!!!!!!!!!!!|speed:5,noInput',
+          '!!!!!!!!!!!!!!!!!!|speed:5',
         ]
       });
     }

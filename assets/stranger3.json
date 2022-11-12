@@ -30,13 +30,64 @@
                 {
                  "gid":1,
                  "height":16,
+                 "id":6,
+                 "name":"stranger2",
+                 "properties":[
+                        {
+                         "name":"lines",
+                         "type":"string",
+                         "value":"...|speed:200\n......|speed:200\nI know I'm supposed to|noInput\nbe social...\n...and make friends...\n...|speed:200\n......|speed:200\nBut sometimes I want|noInput\nto be alone, too."
+                        }, 
+                        {
+                         "name":"npcColor",
+                         "type":"string",
+                         "value":"Brown"
+                        }, 
+                        {
+                         "name":"npcLines",
+                         "type":"string",
+                         "value":"......\n............\nNo, not right now.\nSorry."
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":48,
+                 "y":288
+                }, 
+                {
+                 "gid":1,
+                 "height":16,
+                 "id":7,
+                 "name":"npc",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"Blue"
+                        }, 
+                        {
+                         "name":"lines",
+                         "type":"string",
+                         "value":"Wow a cat!!!11\nI want to pet!!!\nPET THE CAT! =3\n......\n............\nIt's just not the same...\n...when I pet myself :("
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":144,
+                 "y":288
+                }, 
+                {
+                 "gid":1,
+                 "height":16,
                  "id":24,
                  "name":"player",
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":56,
+                 "x":312,
                  "y":288
                 }, 
                 {
@@ -53,13 +104,13 @@
                         {
                          "name":"lines",
                          "type":"string",
-                         "value":"Oh hello!\nI feel like we don't...\n...Say this enough:\nI'm glad we're friends.\n<3          "
+                         "value":"Hi!\nWe don't hang out much.\nBut if you ever want to talk...\n...or vent about your day...\nLet me know!\n"
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":352,
+                 "x":400,
                  "y":288
                 }, 
                 {
@@ -71,46 +122,233 @@
                         {
                          "name":"color",
                          "type":"string",
-                         "value":"Blue"
+                         "value":"Red"
                         }, 
                         {
                          "name":"lines",
                          "type":"string",
-                         "value":"Wanna know how I...\n...deal with anxiety?\nDo ya?\nDooooo ya?\n......\nBooze.\nHeaps of booze."
+                         "value":"Confidence issues bro?\nYou should hit the gym bro.\nIt gives you confidence!\nIt makes you...\nSeXy AnD aTtRaCtIvE!!!\nBro, it's true.\nSuper true."
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":704,
+                 "x":560,
+                 "y":288
+                }, 
+                {
+                 "gid":1,
+                 "height":16,
+                 "id":28,
+                 "name":"badAdviceNpc",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"Red"
+                        }, 
+                        {
+                         "name":"lines",
+                         "type":"string",
+                         "value":"Oh hey,\nI remember you.\nAre you still a scaredy cat?\nDuh. That's easy to fix.\nJust be confident...\n...And push through it!\nI saw a stranger over there."
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":944,
+                 "y":288
+                }, 
+                {
+                 "gid":1,
+                 "height":16,
+                 "id":30,
+                 "name":"image",
+                 "properties":[
+                        {
+                         "name":"frame",
+                         "type":"string",
+                         "value":"dirt"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":64,
+                 "x":24,
                  "y":288
                 }, 
                 {
                  "gid":1,
                  "height":16,
                  "id":31,
-                 "name":"stranger3",
+                 "name":"fireHydrant",
                  "properties":[
                         {
-                         "name":"lines",
+                         "name":"frame",
                          "type":"string",
-                         "value":"...|speed:300\nYou caught me!\nThat was fun, wasn't it?\nIf I'd run further, would|noInput\nyou have followed me?\n...|speed:300\nDon't answer that,\nI'm glad we met!"
-                        }, 
-                        {
-                         "name":"npcColor",
-                         "type":"string",
-                         "value":"Blue"
-                        }, 
-                        {
-                         "name":"npcLines",
-                         "type":"string",
-                         "value":"You've met so many...\n...interesting cats so far.\nI'd say...\n...You're pretty good at...\nTalking to strangers."
+                         "value":"hydrant"
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":240,
+                 "x":230,
+                 "y":288
+                }, 
+                {
+                 "gid":1,
+                 "height":32,
+                 "id":32,
+                 "name":"interactableImage",
+                 "properties":[
+                        {
+                         "name":"animation",
+                         "type":"string",
+                         "value":"sign"
+                        }, 
+                        {
+                         "name":"frame",
+                         "type":"string",
+                         "value":"sign1"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":450,
+                 "y":272
+                }, 
+                {
+                 "gid":1,
+                 "height":32,
+                 "id":35,
+                 "name":"interactableImage",
+                 "properties":[
+                        {
+                         "name":"animation",
+                         "type":"string",
+                         "value":"sign"
+                        }, 
+                        {
+                         "name":"frame",
+                         "type":"string",
+                         "value":"sign1"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":1008,
+                 "y":288
+                }, 
+                {
+                 "gid":1,
+                 "height":32,
+                 "id":37,
+                 "name":"interactableImage",
+                 "properties":[
+                        {
+                         "name":"animation",
+                         "type":"string",
+                         "value":"car"
+                        }, 
+                        {
+                         "name":"arrowOffsetX",
+                         "type":"float",
+                         "value":0.5
+                        }, 
+                        {
+                         "name":"arrowOffsetY",
+                         "type":"float",
+                         "value":-0.25
+                        }, 
+                        {
+                         "name":"frame",
+                         "type":"string",
+                         "value":"car2"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":606,
+                 "y":288
+                }, 
+                {
+                 "gid":1,
+                 "height":128,
+                 "id":38,
+                 "name":"image",
+                 "properties":[
+                        {
+                         "name":"frame",
+                         "type":"string",
+                         "value":"buildingSideFlipped"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":944,
+                 "y":288
+                }, 
+                {
+                 "gid":1,
+                 "height":128,
+                 "id":39,
+                 "name":"image",
+                 "properties":[
+                        {
+                         "name":"frame",
+                         "type":"string",
+                         "value":"boxes"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":363,
+                 "y":289
+                }, 
+                {
+                 "gid":1,
+                 "height":128,
+                 "id":40,
+                 "name":"image",
+                 "properties":[
+                        {
+                         "name":"frame",
+                         "type":"string",
+                         "value":"house"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":736,
+                 "y":288
+                }, 
+                {
+                 "gid":1,
+                 "height":16,
+                 "id":41,
+                 "name":"npc",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"string",
+                         "value":"Red"
+                        }, 
+                        {
+                         "name":"lines",
+                         "type":"string",
+                         "value":"Shhhhhhhhh...\n...I'm hiding!"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":800,
                  "y":288
                 }],
          "opacity":1,
@@ -120,7 +358,7 @@
          "y":0
         }],
  "nextlayerid":3,
- "nextobjectid":32,
+ "nextobjectid":42,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.7.0",

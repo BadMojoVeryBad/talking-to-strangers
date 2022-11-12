@@ -20,12 +20,6 @@ export class Stranger2TitleNode extends Node {
       .setAlpha(0);
   }
 
-  public update(time: number, delta: number): void {
-    super.update(time, delta);
-
-    this.scene.events.emit('debug.push', this.image.alpha);
-  }
-
   public fadeIn(): void {
     this.scene.tweens.add({
       targets: this.image,

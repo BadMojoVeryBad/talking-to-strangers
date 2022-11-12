@@ -2,8 +2,11 @@ import { Node } from '@/framework/node';
 import { NodeInterface } from '@/framework/nodeInterface';
 import { tap } from '@/framework/support/support';
 import { BadAdviceNpcNode } from './badAdviceNpcNode';
+import { ExitNode } from './exitNode';
+import { FireHydrantNode } from './fireHydrantNode';
 import { FloorNode } from './floorNode';
 import { ImageNode } from './imageNode';
+import { InteractableImageNode } from './interactableImageNode';
 import { NpcNode } from './npcNode';
 import { PlayerNode } from './playerNode';
 import { Stranger2Node } from './stranger2Node';
@@ -61,12 +64,18 @@ export class MapNode extends Node {
         return BadAdviceNpcNode;
       case 'imageNode':
         return ImageNode;
+      case 'interactableImageNode':
+        return InteractableImageNode;
+      case 'fireHydrantNode':
+        return FireHydrantNode;
       case 'strangerNode':
         return StrangerNode;
       case 'stranger2Node':
         return Stranger2Node;
       case 'stranger3Node':
         return Stranger3Node;
+      case 'exitNode':
+        return ExitNode;
       case 'floorNode':
         return FloorNode;
       case 'playerNode':

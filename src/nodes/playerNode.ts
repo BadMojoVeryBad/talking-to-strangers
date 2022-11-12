@@ -1,4 +1,5 @@
 import { Node } from '@/framework/node';
+import { easeInOutCubic } from '@/framework/support/support';
 import { CONST } from '@/support/constants';
 import { FLAGS } from '@/support/flags';
 
@@ -25,7 +26,7 @@ export class PlayerNode extends Node {
     this.player.body.setSize(8, 16);
 
     this.scene.events.on('stranger.intensity', (intensity: number) => {
-      this.speedIntensity = Math.max((1 - intensity), 0.05);
+      this.speedIntensity = Math.max((1 - easeInOutCubic(intensity)), 0.1);
     });
 
     this.playerSpawn = this.scene.add.sprite(this.position.x, this.position.y - 64 + 8, CONST.TEXTURE_NAME, 'catEntrance1');

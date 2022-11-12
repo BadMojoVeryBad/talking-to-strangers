@@ -65,7 +65,7 @@ export class StrangerNode extends Node {
     });
     emitter.start();
 
-    this.interactionZone = this.scene.add.rectangle(this.position.x, this.position.y, 2, 32, 0x000000);
+    this.interactionZone = this.scene.add.rectangle(this.position.x, this.position.y, 4, 32, 0x000000);
     this.scene.physics.add.existing(this.interactionZone, true);
     this.interactionZone.setDepth(100).setVisible(false);
 

@@ -40,7 +40,7 @@ export class CameraNode extends Node {
 
     this.scene.events.on('stranger.intensity', (intensity: number) => {
       if (intensity > this.shakeIntensity) {
-        this.shakeIntensity = intensity * 0.025;
+        this.shakeIntensity = intensity * 0.04;
       }
     });
   }

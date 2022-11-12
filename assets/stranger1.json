@@ -72,12 +72,12 @@
                         {
                          "name":"lines",
                          "type":"string",
-                         "value":"...|speed:200\nOh!\nHello.\nUmmmmmm soooooo...\nDo you come here often?|speed:100\n...\nI'm so sorry.\nI get nervous and resort|noInput\nto the worst cliches."
+                         "value":"...|speed:200\nOh!\nHello.\nUmmmmmm soooooo...\nDo you come here often?|speed:100\n...\nI'm so sorry.\nWhen I get nervous I say|noInput\ncheesy one-liners."
                         }, 
                         {
                          "name":"npcColor",
                          "type":"string",
-                         "value":"Orange"
+                         "value":"Grey"
                         }, 
                         {
                          "name":"npcLines",
@@ -123,7 +123,7 @@
                         {
                          "name":"color",
                          "type":"string",
-                         "value":"Orange"
+                         "value":"Blue"
                         }, 
                         {
                          "name":"lines",
@@ -134,7 +134,7 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":448,
+                 "x":416,
                  "y":288
                 }, 
                 {
@@ -162,27 +162,9 @@
                 }, 
                 {
                  "gid":1,
-                 "height":32,
-                 "id":12,
-                 "name":"image",
-                 "properties":[
-                        {
-                         "name":"frame",
-                         "type":"string",
-                         "value":"sign"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":720,
-                 "y":288
-                }, 
-                {
-                 "gid":1,
                  "height":16,
                  "id":17,
-                 "name":"image",
+                 "name":"fireHydrant",
                  "properties":[
                         {
                          "name":"frame",
@@ -193,79 +175,30 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":128,
-                 "y":288
-                }, 
-                {
-                 "gid":1,
-                 "height":16,
-                 "id":18,
-                 "name":"image",
-                 "properties":[
-                        {
-                         "name":"frame",
-                         "type":"string",
-                         "value":"hydrant"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":464,
-                 "y":288
-                }, 
-                {
-                 "gid":1,
-                 "height":16,
-                 "id":19,
-                 "name":"image",
-                 "properties":[
-                        {
-                         "name":"frame",
-                         "type":"string",
-                         "value":"hydrant"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":800,
+                 "x":144,
                  "y":288
                 }, 
                 {
                  "gid":1,
                  "height":32,
                  "id":20,
-                 "name":"image",
+                 "name":"interactableImage",
                  "properties":[
+                        {
+                         "name":"animation",
+                         "type":"string",
+                         "value":"sign"
+                        }, 
                         {
                          "name":"frame",
                          "type":"string",
-                         "value":"sign"
+                         "value":"sign1"
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":544,
-                 "y":288
-                }, 
-                {
-                 "gid":1,
-                 "height":32,
-                 "id":21,
-                 "name":"image",
-                 "properties":[
-                        {
-                         "name":"frame",
-                         "type":"string",
-                         "value":"car"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":128,
-                 "x":508,
+                 "x":560,
                  "y":288
                 }, 
                 {
@@ -288,24 +221,6 @@
                 }, 
                 {
                  "gid":1,
-                 "height":32,
-                 "id":23,
-                 "name":"image",
-                 "properties":[
-                        {
-                         "name":"frame",
-                         "type":"string",
-                         "value":"sign"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":960,
-                 "y":288
-                }, 
-                {
-                 "gid":1,
                  "height":16,
                  "id":24,
                  "name":"player",
@@ -320,18 +235,125 @@
                  "gid":1,
                  "height":32,
                  "id":25,
-                 "name":"image",
+                 "name":"interactableImage",
                  "properties":[
+                        {
+                         "name":"animation",
+                         "type":"string",
+                         "value":"car"
+                        }, 
+                        {
+                         "name":"arrowOffsetX",
+                         "type":"float",
+                         "value":0.5
+                        }, 
+                        {
+                         "name":"arrowOffsetY",
+                         "type":"float",
+                         "value":-0.25
+                        }, 
                         {
                          "name":"frame",
                          "type":"string",
-                         "value":"car"
+                         "value":"car2"
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":128,
                  "x":160,
+                 "y":288
+                }, 
+                {
+                 "gid":1,
+                 "height":16,
+                 "id":26,
+                 "name":"fireHydrant",
+                 "properties":[
+                        {
+                         "name":"frame",
+                         "type":"string",
+                         "value":"hydrant"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":496,
+                 "y":288
+                }, 
+                {
+                 "gid":1,
+                 "height":32,
+                 "id":27,
+                 "name":"interactableImage",
+                 "properties":[
+                        {
+                         "name":"animation",
+                         "type":"string",
+                         "value":"sign"
+                        }, 
+                        {
+                         "name":"frame",
+                         "type":"string",
+                         "value":"sign1"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":960,
+                 "y":288
+                }, 
+                {
+                 "gid":1,
+                 "height":16,
+                 "id":28,
+                 "name":"fireHydrant",
+                 "properties":[
+                        {
+                         "name":"frame",
+                         "type":"string",
+                         "value":"hydrant"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":800,
+                 "y":288
+                }, 
+                {
+                 "gid":1,
+                 "height":32,
+                 "id":29,
+                 "name":"interactableImage",
+                 "properties":[
+                        {
+                         "name":"animation",
+                         "type":"string",
+                         "value":"car"
+                        }, 
+                        {
+                         "name":"arrowOffsetX",
+                         "type":"float",
+                         "value":0.5
+                        }, 
+                        {
+                         "name":"arrowOffsetY",
+                         "type":"float",
+                         "value":-0.25
+                        }, 
+                        {
+                         "name":"frame",
+                         "type":"string",
+                         "value":"car2"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":640,
                  "y":288
                 }],
          "opacity":1,
@@ -341,7 +363,7 @@
          "y":0
         }],
  "nextlayerid":3,
- "nextobjectid":26,
+ "nextobjectid":30,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.7.0",

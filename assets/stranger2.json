@@ -30,64 +30,13 @@
                 {
                  "gid":1,
                  "height":16,
-                 "id":6,
-                 "name":"stranger2",
-                 "properties":[
-                        {
-                         "name":"lines",
-                         "type":"string",
-                         "value":"...|speed:200\n......|speed:200\nI know I'm supposed to|noInput\nbe social...\n...and make friends...\n...|speed:200\n......|speed:200\nBut sometimes I want|noInput\nto be alone, too."
-                        }, 
-                        {
-                         "name":"npcColor",
-                         "type":"string",
-                         "value":"Blue"
-                        }, 
-                        {
-                         "name":"npcLines",
-                         "type":"string",
-                         "value":"......\n............\nNo, not right now.\nSorry."
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":48,
-                 "y":288
-                }, 
-                {
-                 "gid":1,
-                 "height":16,
-                 "id":7,
-                 "name":"npc",
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"string",
-                         "value":"Blue"
-                        }, 
-                        {
-                         "name":"lines",
-                         "type":"string",
-                         "value":"Wow a cat!!!11\nI want to pet!!!\nPET THE CAT! =3\n......\n............\nIt's just not the same...\n...when I pet myself :("
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":176,
-                 "y":288
-                }, 
-                {
-                 "gid":1,
-                 "height":16,
                  "id":24,
                  "name":"player",
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":312,
+                 "x":56,
                  "y":288
                 }, 
                 {
@@ -99,18 +48,18 @@
                         {
                          "name":"color",
                          "type":"string",
-                         "value":"Orange"
+                         "value":"Blue"
                         }, 
                         {
                          "name":"lines",
                          "type":"string",
-                         "value":"Yo.\nI hate to say it, \nbut sometimes...\n...You'll get bad advice.\nAnd not everyone here...\n...Wants to meet you.\nGood luck!"
+                         "value":"Evening, pal!\nHow's it going?\nGood?\nLovely weather we're having?\nIsn't it?!\nAmazing.\nSo amazing.\nPeople say I talk too much\nwhen I get nervous.\nCan you believe that?\nCan you?\nI avoid being awkward\nBy talking non-stop.\nWell.\nGood chat, good chat.\nSee ya 'round, pal!"
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":352,
+                 "x":680,
                  "y":288
                 }, 
                 {
@@ -122,25 +71,173 @@
                         {
                          "name":"color",
                          "type":"string",
-                         "value":"Blue"
+                         "value":"Red"
                         }, 
                         {
                          "name":"lines",
                          "type":"string",
-                         "value":"Duuuuuude.\nYou should just exercise dude.\nIt gives you confidence!\nIt makes you...\nsExY aNd AtTrAcTiVe.\nDude it's true.\nSuper true."
+                         "value":"Wanna know how I...\n...deal with anxiety?\nDo ya?\nDooooo ya?\n......\nBooze.\nHeaps of booze."
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":560,
+                 "x":361,
                  "y":288
                 }, 
                 {
                  "gid":1,
                  "height":16,
-                 "id":28,
-                 "name":"badAdviceNpc",
+                 "id":31,
+                 "name":"stranger3",
+                 "properties":[
+                        {
+                         "name":"lines",
+                         "type":"string",
+                         "value":"...|speed:300\nYou caught me!\nThat was fun, wasn't it?\nIf I'd run further, would|noInput\nyou have followed me?\n...|speed:300\nDon't answer that.\nI'm glad we met!"
+                        }, 
+                        {
+                         "name":"npcColor",
+                         "type":"string",
+                         "value":"Orange"
+                        }, 
+                        {
+                         "name":"npcLines",
+                         "type":"string",
+                         "value":"When I get anxious\nI imagine...\n...everone in their underpants!\nHow's that for a tip?!"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":240,
+                 "y":288
+                }, 
+                {
+                 "gid":1,
+                 "height":32,
+                 "id":32,
+                 "name":"interactableImage",
+                 "properties":[
+                        {
+                         "name":"animation",
+                         "type":"string",
+                         "value":"car"
+                        }, 
+                        {
+                         "name":"arrowOffsetX",
+                         "type":"float",
+                         "value":0.5
+                        }, 
+                        {
+                         "name":"arrowOffsetY",
+                         "type":"float",
+                         "value":-0.25
+                        }, 
+                        {
+                         "name":"frame",
+                         "type":"string",
+                         "value":"car2"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":112,
+                 "y":288
+                }, 
+                {
+                 "gid":1,
+                 "height":32,
+                 "id":33,
+                 "name":"interactableImage",
+                 "properties":[
+                        {
+                         "name":"animation",
+                         "type":"string",
+                         "value":"sign"
+                        }, 
+                        {
+                         "name":"frame",
+                         "type":"string",
+                         "value":"sign1"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":288,
+                 "y":288
+                }, 
+                {
+                 "gid":1,
+                 "height":32,
+                 "id":34,
+                 "name":"interactableImage",
+                 "properties":[
+                        {
+                         "name":"animation",
+                         "type":"string",
+                         "value":"sign"
+                        }, 
+                        {
+                         "name":"frame",
+                         "type":"string",
+                         "value":"sign1"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":608,
+                 "y":288
+                }, 
+                {
+                 "gid":1,
+                 "height":32,
+                 "id":35,
+                 "name":"interactableImage",
+                 "properties":[
+                        {
+                         "name":"animation",
+                         "type":"string",
+                         "value":"sign"
+                        }, 
+                        {
+                         "name":"frame",
+                         "type":"string",
+                         "value":"sign1"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":928,
+                 "y":288
+                }, 
+                {
+                 "gid":1,
+                 "height":16,
+                 "id":38,
+                 "name":"fireHydrant",
+                 "properties":[
+                        {
+                         "name":"frame",
+                         "type":"string",
+                         "value":"hydrant"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":768,
+                 "y":288
+                }, 
+                {
+                 "gid":1,
+                 "height":16,
+                 "id":39,
+                 "name":"npc",
                  "properties":[
                         {
                          "name":"color",
@@ -150,31 +247,100 @@
                         {
                          "name":"lines",
                          "type":"string",
-                         "value":"Oh hey,\nI remember you.\nAre you still a scaredy cat?\nDuh. That's easy to fix.\nJust be confident...\n...And push through it!\nI saw a stranger over there."
+                         "value":"Yo.\nI hate to say it, \nbut sometimes...\n...You'll get bad advice.\nAnd not everyone here...\n...Wants to meet you.\nGood luck!"
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":944,
+                 "x":128,
                  "y":288
                 }, 
                 {
                  "gid":1,
-                 "height":16,
-                 "id":30,
+                 "height":128,
+                 "id":40,
                  "name":"image",
                  "properties":[
                         {
                          "name":"frame",
                          "type":"string",
-                         "value":"dirt"
+                         "value":"buildingSide"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":-48,
+                 "y":288
+                }, 
+                {
+                 "gid":1,
+                 "height":64,
+                 "id":41,
+                 "name":"interactableImage",
+                 "properties":[
+                        {
+                         "name":"animation",
+                         "type":"string",
+                         "value":"phone"
+                        }, 
+                        {
+                         "name":"arrowOffsetX",
+                         "type":"float",
+                         "value":0
+                        }, 
+                        {
+                         "name":"arrowOffsetY",
+                         "type":"float",
+                         "value":-0.5
+                        }, 
+                        {
+                         "name":"frame",
+                         "type":"string",
+                         "value":"phone1"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":448,
+                 "y":288
+                }, 
+                {
+                 "gid":1,
+                 "height":16,
+                 "id":42,
+                 "name":"image",
+                 "properties":[
+                        {
+                         "name":"frame",
+                         "type":"string",
+                         "value":"curb"
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":64,
-                 "x":24,
+                 "x":423,
+                 "y":288
+                }, 
+                {
+                 "gid":1,
+                 "height":128,
+                 "id":43,
+                 "name":"image",
+                 "properties":[
+                        {
+                         "name":"frame",
+                         "type":"string",
+                         "value":"bridge"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":396,
+                 "x":512,
                  "y":288
                 }],
          "opacity":1,
@@ -184,7 +350,7 @@
          "y":0
         }],
  "nextlayerid":3,
- "nextobjectid":31,
+ "nextobjectid":45,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.7.0",
