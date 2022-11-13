@@ -221,29 +221,6 @@
                 {
                  "gid":1,
                  "height":32,
-                 "id":35,
-                 "name":"interactableImage",
-                 "properties":[
-                        {
-                         "name":"animation",
-                         "type":"string",
-                         "value":"sign"
-                        }, 
-                        {
-                         "name":"frame",
-                         "type":"string",
-                         "value":"sign1"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":1008,
-                 "y":288
-                }, 
-                {
-                 "gid":1,
-                 "height":32,
                  "id":37,
                  "name":"interactableImage",
                  "properties":[

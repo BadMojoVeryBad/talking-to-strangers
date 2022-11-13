@@ -24,8 +24,15 @@ export class StrangerConversationNode extends Node {
       .setDepth(200)
       .setVisible(false);
 
+    const indicator = this.scene.add.sprite(0, 0, CONST.TEXTURE_NAME, 'arrow1')
+      .setScrollFactor(0)
+      .setDepth(201)
+      .setVisible(false)
+      .play('arrow');
+
     this.addState('default', (time) => {
       rectangle.setVisible(false);
+      indicator.setVisible(false);
 
       if (this.shouldStartConversation) {
         this.startTime = time;
@@ -36,6 +43,7 @@ export class StrangerConversationNode extends Node {
 
     this.addState('startingConversation', (time) => {
       rectangle.setVisible(true);
+      indicator.setVisible(false);
       this.currentLine = 0;
       this.currentText = '';
 
@@ -45,6 +53,7 @@ export class StrangerConversationNode extends Node {
     });
 
     this.addState('printingLine', (time) => {
+      indicator.setVisible(false);
       this.printLine(time);
 
       const line = this.parseLine(this.lines[this.currentLine]);
@@ -61,6 +70,9 @@ export class StrangerConversationNode extends Node {
         this.currentText = '';
         return 'printingLine';
       }
+
+      indicator.setVisible(true);
+      indicator.setPosition(this.texts[this.currentLine].x + this.texts[this.currentLine].width + 6, this.texts[this.currentLine].y + (this.texts[this.currentLine].height / 2) + 4);
 
       if (this.lastInput + 300 < time && this.controls.isActive(CONST.CONTROL_ACTIVATE)) {
         this.lastInput = time;

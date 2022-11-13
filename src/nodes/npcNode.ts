@@ -16,7 +16,7 @@ export class NpcNode extends Node {
   protected lastActivatedTime = 0;
   private lines: string[] = [];
   private color: string = '';
-
+  protected arrowVisible = true;
   protected defaultState = 'idle';
 
   public init(data: Record<string, unknown>): void {
@@ -147,6 +147,6 @@ export class NpcNode extends Node {
     this.arrow.setPosition(this.npc.x, this.npc.y - 12);
     this.interactionZone.setPosition(this.npc.x, this.npc.y);
     (this.interactionZone.body as Phaser.Physics.Arcade.Body).updateFromGameObject();
-    this.arrow.setVisible(this.scene.physics.overlap(this.player, this.interactionZone));
+    this.arrow.setVisible(this.scene.physics.overlap(this.player, this.interactionZone) && this.arrowVisible);
   }
 }

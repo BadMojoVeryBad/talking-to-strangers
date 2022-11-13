@@ -39,6 +39,7 @@ export class Stranger3Node extends StrangerNode {
 
     this.conversationNode.remove();
     if (this.times === 1) {
+      this.scene.events.emit('stranger.interaction.1');
       this.conversationNode = this.addNode(StrangerConversationNode, {
         lines: [
           '...|speed:300',
@@ -52,6 +53,7 @@ export class Stranger3Node extends StrangerNode {
     }
 
     if (this.times === 2) {
+      this.scene.events.emit('stranger.interaction.2');
       this.conversationNode = this.addNode(StrangerConversationNode, {
         lines: this.finalLines
       });

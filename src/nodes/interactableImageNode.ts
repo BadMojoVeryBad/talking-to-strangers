@@ -49,7 +49,7 @@ export class InteractableImageNode extends Node {
     this.scene.physics.add.existing(interactionZone, true);
     interactionZone.setDepth(100).setVisible(false);
 
-    const arrow = this.scene.add.sprite(this.position.x + ((this.size.x / 2) * this.arrowOffset.x), this.position.y - (this.size.y / 2) + ((this.size.y / 2) * this.arrowOffset.x) - 4, CONST.TEXTURE_NAME, 'conversationArrow')
+    const arrow = this.scene.add.sprite(this.position.x + ((this.size.x / 2) * this.arrowOffset.x), this.position.y - (this.size.y / 2) - ((this.size.y / 2) * this.arrowOffset.y) - 4, CONST.TEXTURE_NAME, 'conversationArrow')
       .setDepth(99)
       .play('arrow');
 

@@ -9,8 +9,14 @@ export class Level1OpeningCutsceneScriptNode extends ScriptNode {
 
   private camera: CameraNode;
 
+  private isActive: boolean;
+
   public create(): void {
     super.create();
+
+    this.addState('default', () => {
+      this.isActive = this.controls.isActive(CONST.CONTROL_ACTIVATE) === 1;
+    });
 
     this.scene.events.on('player.created', (player: PlayerNode) => {
       this.player = player;
@@ -38,11 +44,6 @@ export class Level1OpeningCutsceneScriptNode extends ScriptNode {
       this.pan(320, -128, 0),
       this.wait(1000),
       this.fadeIn(2000),
-      this.wait(1000),
-      this.pan(320, 259, 5000),
-      this.wait(1000),
-      async () => { this.player.spawnPlayer(); },
-      async () => { this.camera.startFollow(this.player.getPlayer()); }
     ];
   }
 }

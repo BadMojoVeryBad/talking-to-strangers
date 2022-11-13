@@ -30,7 +30,14 @@ export class ConversationNode extends Node {
     this.sideR = this.scene.add.image(0, 0, CONST.TEXTURE_NAME, 'conversationSide').setDepth(39).setVisible(false);
     this.rectangle = this.scene.add.rectangle(0, 0, 64, 24, 0x000000).setVisible(false).setDepth(39);
 
+    const indicator = this.scene.add.sprite(0, 0, CONST.TEXTURE_NAME, 'arrow1')
+      .setDepth(99)
+      .setVisible(false)
+      .play('arrow');
+
     this.addState('idle', () => {
+      indicator.setVisible(false);
+
       if (this.shouldStartConversation) {
         this.shouldStartConversation = false;
         return 'printingLine';
@@ -38,6 +45,9 @@ export class ConversationNode extends Node {
     });
 
     this.addState('waitingForInput', () => {
+      indicator.setVisible(true);
+      indicator.setPosition(this.text.x + this.text.width + 6, this.text.y + (this.text.height / 2) + 4);
+
       if (this.controls.isActive(CONST.CONTROL_ACTIVATE)) {
         this.currentLine++;
         this.currentText = '';
@@ -56,6 +66,7 @@ export class ConversationNode extends Node {
     });
 
     this.addState('printingLine', (time: number) => {
+      indicator.setVisible(false);
       this.printLine(time);
 
       if (this.currentText.length === this.lines[this.currentLine].length) {
@@ -83,10 +94,10 @@ export class ConversationNode extends Node {
 
     this.text.setText(this.lines[this.currentLine]).setVisible(true);
     this.rectangle.destroy();
-    this.rectangle = this.scene.add.rectangle(center, this.position.y + 10, Math.max(this.text.width, 64), 16, 0x000000).setDepth(39);
+    this.rectangle = this.scene.add.rectangle(center, this.position.y + 10, Math.max(this.text.width + 10, 64), 16, 0x000000).setDepth(39);
     this.rectangle.setVisible(true);
     this.text.setText(this.currentText).setVisible(true);
-    this.text.setPosition(center - (this.text.width / 2), this.position.y);
+    this.text.setPosition(center - (this.text.width / 2) - 5, this.position.y);
     this.arrow.setPosition(this.position.x, this.position.y + 22).setVisible(true);
     this.sideL.setPosition(center - (this.rectangle.width / 2) - 2, this.position.y + 10).setVisible(true);
     this.sideR.setPosition(center + Math.floor(this.rectangle.width / 2) + 2, this.position.y + 10).setVisible(true);

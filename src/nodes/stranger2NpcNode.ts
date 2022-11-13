@@ -12,7 +12,7 @@ export class Stranger2NpcNode extends NpcNode {
         this.hasTalkedToPlayer = true;
         return 'moveToPlayer';
       } else {
-
+        this.arrowVisible = false;
         FLAGS.PLAYER_CONTROLS_ENABLED = false;
         this.scene.events.emit('strangerNpcNode.complete');
         this.moveTarget = 400;

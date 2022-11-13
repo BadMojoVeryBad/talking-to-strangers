@@ -13,6 +13,7 @@ export class EndScene4ScriptNode extends ScriptNode {
 
   protected callbacks(): (() => Promise<void>)[] {
     return [
+      this.wait(1000),
       this.fadeOut(3000),
       async () => { this.scene.changeScene('level1Scene'); }
     ];

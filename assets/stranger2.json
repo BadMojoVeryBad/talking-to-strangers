@@ -76,7 +76,7 @@
                         {
                          "name":"lines",
                          "type":"string",
-                         "value":"Wanna know how I...\n...deal with anxiety?\nDo ya?\nDooooo ya?\n......\nBooze.\nHeaps of booze."
+                         "value":"Wanna know how I...\n...deal with anxiety?\nDo ya?\nDooooo ya?\n......\nBooze.\nThe best social lubricant."
                         }],
                  "rotation":0,
                  "type":"",
@@ -350,7 +350,7 @@
          "y":0
         }],
  "nextlayerid":3,
- "nextobjectid":45,
+ "nextobjectid":46,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.7.0",
