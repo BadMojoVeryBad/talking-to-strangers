@@ -11,6 +11,8 @@ export class Level1AfterInputCutsceneScriptNode extends ScriptNode {
 
   private text;
 
+  private hasntActivated = true;
+
   public create(): void {
     super.create();
 
@@ -19,7 +21,8 @@ export class Level1AfterInputCutsceneScriptNode extends ScriptNode {
     this.text.setPosition(320 - this.text.width / 2, 64 - this.text.height / 2);
 
     this.addState('default', () => {
-      if (this.controls.isActive(CONST.CONTROL_ACTIVATE) === 1) {
+      if (this.controls.isActive(CONST.CONTROL_ACTIVATE) === 1 && this.hasntActivated) {
+        this.hasntActivated = false;
         this.scene.events.emit('afterInput.start');
       }
     });
