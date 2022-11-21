@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.7.0" orientation="orthogonal" renderorder="right-down" width="100" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="3" nextobjectid="46">
+ <editorsettings>
+  <export target="../project/assets/stranger2.json" format="json"/>
+ </editorsettings>
+ <tileset firstgid="1" name="tiles" tilewidth="16" tileheight="16" tilecount="1" columns="1">
+  <image source="textures/placeholder.png" width="16" height="16"/>
+ </tileset>
+ <objectgroup id="2" name="objects">
+  <object id="1" name="floor" gid="1" x="0" y="320" width="1024" height="32"/>
+  <object id="24" name="player" gid="1" x="56" y="288" width="16" height="16"/>
+  <object id="26" name="npc" gid="1" x="680" y="288" width="16" height="16">
+   <properties>
+    <property name="color" value="Blue"/>
+    <property name="lines">Evening, pal!
+How's it going?
+Good?
+Lovely weather we're having?
+Isn't it?!
+Amazing.
+So amazing.
+People say I talk too much
+when I get nervous.
+Can you believe that?
+Can you?
+I avoid being awkward
+By talking non-stop.
+Well.
+Good chat, good chat.
+See ya 'round, pal!</property>
+   </properties>
+  </object>
+  <object id="27" name="npc" gid="1" x="361" y="288" width="16" height="16">
+   <properties>
+    <property name="color" value="Red"/>
+    <property name="lines">Wanna know how I...
+...deal with anxiety?
+Do ya?
+Dooooo ya?
+......
+Booze.
+The best social lubricant.</property>
+   </properties>
+  </object>
+  <object id="31" name="stranger3" gid="1" x="240" y="288" width="16" height="16">
+   <properties>
+    <property name="lines">...|speed:300
+You caught me!
+That was fun, wasn't it?
+If I'd run further, would|noInput
+you have followed me?
+...|speed:300
+Don't answer that.
+I'm glad we met!</property>
+    <property name="npcColor" value="Orange"/>
+    <property name="npcLines">When I get anxious
+I imagine...
+...everone in their underpants!
+How's that for a tip?!</property>
+   </properties>
+  </object>
+  <object id="32" name="interactableImage" gid="1" x="112" y="288" width="128" height="32">
+   <properties>
+    <property name="animation" value="car"/>
+    <property name="arrowOffsetX" type="float" value="0.5"/>
+    <property name="arrowOffsetY" type="float" value="-0.25"/>
+    <property name="frame" value="car2"/>
+   </properties>
+  </object>
+  <object id="33" name="interactableImage" gid="1" x="288" y="288" width="16" height="32">
+   <properties>
+    <property name="animation" value="sign"/>
+    <property name="frame" value="sign1"/>
+   </properties>
+  </object>
+  <object id="34" name="interactableImage" gid="1" x="608" y="288" width="16" height="32">
+   <properties>
+    <property name="animation" value="sign"/>
+    <property name="frame" value="sign1"/>
+   </properties>
+  </object>
+  <object id="35" name="interactableImage" gid="1" x="928" y="288" width="16" height="32">
+   <properties>
+    <property name="animation" value="sign"/>
+    <property name="frame" value="sign1"/>
+   </properties>
+  </object>
+  <object id="38" name="fireHydrant" gid="1" x="768" y="288" width="16" height="16">
+   <properties>
+    <property name="frame" value="hydrant"/>
+   </properties>
+  </object>
+  <object id="39" name="npc" gid="1" x="128" y="288" width="16" height="16">
+   <properties>
+    <property name="color" value="Blue"/>
+    <property name="lines">Yo.
+I hate to say it, 
+but sometimes...
+...You'll get bad advice.
+And not everyone here...
+...Wants to meet you.
+Good luck!</property>
+   </properties>
+  </object>
+  <object id="40" name="image" gid="1" x="-48" y="288" width="128" height="128">
+   <properties>
+    <property name="frame" value="buildingSide"/>
+   </properties>
+  </object>
+  <object id="41" name="interactableImage" gid="1" x="448" y="288" width="32" height="64">
+   <properties>
+    <property name="animation" value="phone"/>
+    <property name="arrowOffsetX" type="float" value="0"/>
+    <property name="arrowOffsetY" type="float" value="-0.5"/>
+    <property name="frame" value="phone1"/>
+   </properties>
+  </object>
+  <object id="42" name="image" gid="1" x="423" y="288" width="64" height="16">
+   <properties>
+    <property name="frame" value="curb"/>
+   </properties>
+  </object>
+  <object id="43" name="image" gid="1" x="512" y="288" width="396" height="128">
+   <properties>
+    <property name="frame" value="bridge"/>
+   </properties>
+  </object>
+  <object id="45" name="image" gid="1" x="184" y="288" width="768" height="128">
+   <properties>
+    <property name="frame" value="stranger3Title"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

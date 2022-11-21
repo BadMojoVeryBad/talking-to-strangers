@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.7.0" orientation="orthogonal" renderorder="right-down" width="100" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="3" nextobjectid="42">
+ <editorsettings>
+  <export target="../project/assets/stranger3.json" format="json"/>
+ </editorsettings>
+ <tileset firstgid="1" name="tiles" tilewidth="16" tileheight="16" tilecount="1" columns="1">
+  <image source="textures/placeholder.png" width="16" height="16"/>
+ </tileset>
+ <objectgroup id="2" name="objects">
+  <object id="1" name="floor" gid="1" x="0" y="320" width="1024" height="32"/>
+  <object id="6" name="stranger2" gid="1" x="48" y="288" width="16" height="16">
+   <properties>
+    <property name="lines">...|speed:200
+......|speed:200
+I know I'm supposed to|noInput
+be social...
+...and make friends...
+...|speed:200
+......|speed:200
+But sometimes I want|noInput
+to be alone, too.</property>
+    <property name="npcColor" value="Brown"/>
+    <property name="npcLines">......
+............
+No, not right now.
+Sorry.</property>
+   </properties>
+  </object>
+  <object id="7" name="npc" gid="1" x="144" y="288" width="16" height="16">
+   <properties>
+    <property name="color" value="Blue"/>
+    <property name="lines">Wow a cat!!!11
+I want to pet!!!
+PET THE CAT! =3
+......
+............
+It's just not the same...
+...when I pet myself :(</property>
+   </properties>
+  </object>
+  <object id="24" name="player" gid="1" x="312" y="288" width="16" height="16"/>
+  <object id="26" name="npc" gid="1" x="400" y="288" width="16" height="16">
+   <properties>
+    <property name="color" value="Blue"/>
+    <property name="lines">Hi!
+We don't hang out much.
+But if you ever want to talk...
+...or vent about your day...
+Let me know!
+</property>
+   </properties>
+  </object>
+  <object id="27" name="npc" gid="1" x="560" y="288" width="16" height="16">
+   <properties>
+    <property name="color" value="Red"/>
+    <property name="lines">Confidence issues bro?
+You should hit the gym bro.
+It gives you confidence!
+It makes you...
+SeXy AnD aTtRaCtIvE!!!
+Bro, it's true.
+Super true.</property>
+   </properties>
+  </object>
+  <object id="28" name="badAdviceNpc" gid="1" x="944" y="288" width="16" height="16">
+   <properties>
+    <property name="color" value="Red"/>
+    <property name="lines">Oh hey,
+I remember you.
+Are you still a scaredy cat?
+Duh. That's easy to fix.
+Just be confident...
+...And push through it!
+I saw a stranger over there.</property>
+   </properties>
+  </object>
+  <object id="30" name="image" gid="1" x="24" y="288" width="64" height="16">
+   <properties>
+    <property name="frame" value="dirt"/>
+   </properties>
+  </object>
+  <object id="31" name="fireHydrant" gid="1" x="230" y="288" width="16" height="16">
+   <properties>
+    <property name="frame" value="hydrant"/>
+   </properties>
+  </object>
+  <object id="32" name="interactableImage" gid="1" x="450" y="272" width="16" height="32">
+   <properties>
+    <property name="animation" value="sign"/>
+    <property name="frame" value="sign1"/>
+   </properties>
+  </object>
+  <object id="37" name="interactableImage" gid="1" x="606" y="288" width="128" height="32">
+   <properties>
+    <property name="animation" value="car"/>
+    <property name="arrowOffsetX" type="float" value="0.5"/>
+    <property name="arrowOffsetY" type="float" value="-0.25"/>
+    <property name="frame" value="car2"/>
+   </properties>
+  </object>
+  <object id="38" name="image" gid="1" x="944" y="288" width="128" height="128">
+   <properties>
+    <property name="frame" value="buildingSideFlipped"/>
+   </properties>
+  </object>
+  <object id="39" name="image" gid="1" x="363" y="289" width="128" height="128">
+   <properties>
+    <property name="frame" value="boxes"/>
+   </properties>
+  </object>
+  <object id="40" name="image" gid="1" x="736" y="288" width="128" height="128">
+   <properties>
+    <property name="frame" value="house"/>
+   </properties>
+  </object>
+  <object id="41" name="npc" gid="1" x="800" y="288" width="16" height="16">
+   <properties>
+    <property name="color" value="Red"/>
+    <property name="lines">Shhhhhhhhh...
+...I'm hiding!</property>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

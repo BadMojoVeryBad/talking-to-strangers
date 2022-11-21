@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.7.0" orientation="orthogonal" renderorder="right-down" width="100" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="3" nextobjectid="30">
+ <editorsettings>
+  <export target="../project/assets/stranger1.json" format="json"/>
+ </editorsettings>
+ <tileset firstgid="1" name="tiles" tilewidth="16" tileheight="16" tilecount="1" columns="1">
+  <image source="textures/placeholder.png" width="16" height="16"/>
+ </tileset>
+ <objectgroup id="2" name="objects">
+  <object id="1" name="floor" gid="1" x="0" y="320" width="1024" height="32"/>
+  <object id="3" name="image" gid="1" x="256" y="320" width="128" height="128">
+   <properties>
+    <property name="frame" value="title"/>
+   </properties>
+  </object>
+  <object id="5" name="image" gid="1" x="820" y="272" width="128" height="64">
+   <properties>
+    <property name="frame" value="title2"/>
+   </properties>
+  </object>
+  <object id="6" name="stranger" gid="1" x="912" y="288" width="16" height="16">
+   <properties>
+    <property name="lines">...|speed:200
+Oh!
+Hello.
+Ummmmmm soooooo...
+Do you come here often?|speed:100
+...
+I'm so sorry.
+When I get nervous I say|noInput
+cheesy one-liners.</property>
+    <property name="npcColor" value="Grey"/>
+    <property name="npcLines">Well...
+It was nice meeting you.
+Catch you on the flip side!
+(ugh why did I say that)</property>
+   </properties>
+  </object>
+  <object id="7" name="npc" gid="1" x="80" y="288" width="16" height="16">
+   <properties>
+    <property name="color" value="Blue"/>
+    <property name="lines">...Bro.
+You should like...
+Totally...
+Go the other way...
+...Bro.</property>
+   </properties>
+  </object>
+  <object id="9" name="npc" gid="1" x="416" y="288" width="16" height="16">
+   <properties>
+    <property name="color" value="Blue"/>
+    <property name="lines">I'm not a stranger.
+We met last week.</property>
+   </properties>
+  </object>
+  <object id="10" name="npc" gid="1" x="640" y="288" width="16" height="16">
+   <properties>
+    <property name="color" value="Blue"/>
+    <property name="lines">This next guy...
+...Is a stranger.
+Someone you haven't met.
+I'm getting anxious...
+...Just thinking about it.</property>
+   </properties>
+  </object>
+  <object id="17" name="fireHydrant" gid="1" x="144" y="288" width="16" height="16">
+   <properties>
+    <property name="frame" value="hydrant"/>
+   </properties>
+  </object>
+  <object id="20" name="interactableImage" gid="1" x="560" y="288" width="16" height="32">
+   <properties>
+    <property name="animation" value="sign"/>
+    <property name="frame" value="sign1"/>
+   </properties>
+  </object>
+  <object id="22" name="image" gid="1" x="16" y="288" width="32" height="32">
+   <properties>
+    <property name="frame" value="goBack"/>
+   </properties>
+  </object>
+  <object id="24" name="player" gid="1" x="312" y="288" width="16" height="16"/>
+  <object id="25" name="interactableImage" gid="1" x="160" y="288" width="128" height="32">
+   <properties>
+    <property name="animation" value="car"/>
+    <property name="arrowOffsetX" type="float" value="0.5"/>
+    <property name="arrowOffsetY" type="float" value="-0.25"/>
+    <property name="frame" value="car2"/>
+   </properties>
+  </object>
+  <object id="26" name="fireHydrant" gid="1" x="496" y="288" width="16" height="16">
+   <properties>
+    <property name="frame" value="hydrant"/>
+   </properties>
+  </object>
+  <object id="27" name="interactableImage" gid="1" x="960" y="288" width="16" height="32">
+   <properties>
+    <property name="animation" value="sign"/>
+    <property name="frame" value="sign1"/>
+   </properties>
+  </object>
+  <object id="28" name="fireHydrant" gid="1" x="800" y="288" width="16" height="16">
+   <properties>
+    <property name="frame" value="hydrant"/>
+   </properties>
+  </object>
+  <object id="29" name="interactableImage" gid="1" x="640" y="288" width="128" height="32">
+   <properties>
+    <property name="animation" value="car"/>
+    <property name="arrowOffsetX" type="float" value="0.5"/>
+    <property name="arrowOffsetY" type="float" value="-0.25"/>
+    <property name="frame" value="car2"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

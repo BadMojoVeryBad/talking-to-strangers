@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.7.0" orientation="orthogonal" renderorder="right-down" width="100" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="3" nextobjectid="39">
+ <editorsettings>
+  <export target="../project/assets/stranger4.json" format="json"/>
+ </editorsettings>
+ <tileset firstgid="1" name="tiles" tilewidth="16" tileheight="16" tilecount="1" columns="1">
+  <image source="textures/placeholder.png" width="16" height="16"/>
+ </tileset>
+ <objectgroup id="2" name="objects">
+  <object id="1" name="floor" gid="1" x="0" y="320" width="1024" height="32"/>
+  <object id="24" name="player" gid="1" x="231" y="288" width="16" height="16"/>
+  <object id="26" name="npc" gid="1" x="64" y="288" width="16" height="16">
+   <properties>
+    <property name="color" value="Blue"/>
+    <property name="lines">Oh hello!
+I feel like we don't
+say this enough:
+I'm glad we're friends!
+&lt;3 &lt;3 &lt;3 &lt;3 &lt;3</property>
+   </properties>
+  </object>
+  <object id="27" name="npc" gid="1" x="400" y="288" width="16" height="16">
+   <properties>
+    <property name="color" value="Grey"/>
+    <property name="lines">You've met so many
+interesting cats so far!
+I'd say,
+you're pretty good at...
+Talking to strangers.
+Catch you on the flip side!
+(ugh)</property>
+   </properties>
+  </object>
+  <object id="32" name="npc" gid="1" x="480" y="288" width="16" height="16">
+   <properties>
+    <property name="color" value="Orange"/>
+    <property name="lines">Just relax.
+Excercise.
+Fake it 'till you make it.
+So much advice.
+For boosting confidence.
+Is any of it true?!</property>
+   </properties>
+  </object>
+  <object id="33" name="npc" gid="1" x="560" y="288" width="16" height="16">
+   <properties>
+    <property name="color" value="Brown"/>
+    <property name="lines">......
+............
+Hey.
+I apologize for before.
+......
+If you meet more of us...
+Do whatever you like.
+Everything else...
+...is just a cliche.</property>
+   </properties>
+  </object>
+  <object id="34" name="exit" gid="1" x="640" y="288" width="128" height="128"/>
+  <object id="35" name="fireHydrant" gid="1" x="128" y="288" width="16" height="16">
+   <properties>
+    <property name="frame" value="hydrant"/>
+   </properties>
+  </object>
+  <object id="37" name="interactableImage" gid="1" x="320" y="288" width="16" height="32">
+   <properties>
+    <property name="animation" value="sign"/>
+    <property name="frame" value="sign1"/>
+   </properties>
+  </object>
+  <object id="38" name="interactableImage" gid="1" x="0" y="288" width="16" height="32">
+   <properties>
+    <property name="animation" value="sign"/>
+    <property name="frame" value="sign1"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
